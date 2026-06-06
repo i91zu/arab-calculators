@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>حاسبات العرب | منصة الأدوات والحاسبات الرقمية المجانية</title>
-    <!-- استدعاء خط Cairo الاحترافي -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -197,7 +196,6 @@
 
     <div class="container">
         
-        <!-- القائمة الجانبية الموحدة -->
         <nav class="sidebar-nav">
             <h3>اختر الحاسبة المتاحة:</h3>
             <ul>
@@ -214,10 +212,8 @@
             </ul>
         </nav>
 
-        <!-- منطقة العمل (الحاسبات) -->
         <main class="calculator-zone">
             
-            <!-- 1. الضريبة -->
             <div id="vat-calc" class="calc-panel active">
                 <h3>🧮 حاسبة ضريبة القيمة المضافة</h3>
                 <div class="form-group"><label>المبلغ الأساسي:</label><input type="number" id="vat-amount" placeholder="أدخل المبلغ"></div>
@@ -234,7 +230,6 @@
                 </div>
             </div>
 
-            <!-- 2. الخصم -->
             <div id="discount-calc" class="calc-panel">
                 <h3>🏷️ حاسبة الخصومات والتنزيلات</h3>
                 <div class="form-group"><label>السعر الأصلي للمنتج:</label><input type="number" id="disc-price" placeholder="السعر قبل الخصم"></div>
@@ -246,7 +241,6 @@
                 </div>
             </div>
 
-            <!-- 3. النسبة المئوية -->
             <div id="percent-calc" class="calc-panel">
                 <h3>📊 حاسبة النسبة المئوية الشاملة</h3>
                 <div class="form-group"><label>كم تساوي النسبة المطلوبة (%):</label><input type="number" id="per-pct" placeholder="مثال: 10"></div>
@@ -257,7 +251,6 @@
                 </div>
             </div>
 
-            <!-- 4. القروض -->
             <div id="loan-calc" class="calc-panel">
                 <h3>🏦 حاسبة القروض والتمويل البنكي</h3>
                 <div class="form-group"><label>مبلغ التمويل الإجمالي (أصل القرض):</label><input type="number" id="loan-amt" placeholder="أدخل مبلغ القرض"></div>
@@ -271,7 +264,6 @@
                 </div>
             </div>
 
-            <!-- 5. الهامش والربح -->
             <div id="margin-calc" class="calc-panel">
                 <h3>📈 حاسبة الهامش والربح التجاري</h3>
                 <div class="form-group"><label>تكلفة المنتج أو البضاعة الإجمالية عليك:</label><input type="number" id="cost-amt" placeholder="تكلفة الشراء الأساسية"></div>
@@ -283,7 +275,6 @@
                 </div>
             </div>
 
-            <!-- 6. الزكاة الشاملة -->
             <div id="zakat-calc" class="calc-panel">
                 <h3>💰 حاسبة الزكاة الشرعية الشاملة</h3>
                 <div class="zakat-toggle">
@@ -291,7 +282,6 @@
                     <div id="btn-zakat-mal" class="zakat-btn" onclick="toggleZakatType('mal')">زكاة المال والمدخرات</div>
                 </div>
 
-                <!-- واجهة زكاة الفطر -->
                 <div id="panel-zakat-fitr">
                     <div class="form-group">
                         <label>عدد أفراد الأسرة المستحقين (بمن فيهم أنت ومن تعولهم):</label>
@@ -304,7 +294,6 @@
                     </div>
                 </div>
 
-                <!-- واجهة زكاة المال -->
                 <div id="panel-zakat-mal" style="display: none;">
                     <div class="form-group">
                         <label>إجمالي المال النقدية والسيولة المدخرة (حال عليها الحول):</label>
@@ -317,7 +306,6 @@
                 </div>
             </div>
 
-            <!-- 7. BMI -->
             <div id="bmi-calc" class="calc-panel">
                 <h3>⚖️ حاسبة مؤشر كتلة الجسم (BMI)</h3>
                 <div class="form-group"><label>الوزن الحالي (بالكيلو جرام):</label><input type="number" id="bmi-weight" placeholder="مثال: 70"></div>
@@ -329,7 +317,6 @@
                 </div>
             </div>
 
-            <!-- 8. السعرات -->
             <div id="calories-calc" class="calc-panel">
                 <h3>🔥 حاسبة السعرات الحرارية والـ BMR الأيضي</h3>
                 <div class="form-group"><label>الوزن الحالي (كجم):</label><input type="number" id="cal-weight" placeholder="الوزن"></div>
@@ -346,7 +333,6 @@
                 </div>
             </div>
 
-            <!-- 9. تحويل عملات -->
             <div id="currency-calc" class="calc-panel">
                 <h3>💵 حاسبة تحويل العملات العربية والعالمية</h3>
                 <div class="form-group"><label>المبلغ المالي المراد تحويله:</label><input type="number" id="curr-amt" placeholder="المبلغ المالي"></div>
@@ -358,7 +344,7 @@
                         <option value="AED">درهم إماراتي (AED)</option>
                         <option value="EGP">جنيه مصري (EGP)</option>
                         <option value="KWD">دينار كويتي (KWD)</option>
-                        <option value="QAR">ريال قطري (QAR)</option>
+                        <option value="QAR">ريال قطرري (QAR)</option>
                         <option value="BHD">دينار بحريني (BHD)</option>
                         <option value="OMR">ريال عماني (OMR)</option>
                         <option value="EUR">يورو (EUR)</option>
@@ -386,7 +372,6 @@
                 </div>
             </div>
 
-            <!-- 10. حاسبة العمر الدقيقة -->
             <div id="age-calc" class="calc-panel">
                 <h3>📅 حاسبة العمر الدقيقة والزمن التنازلي</h3>
                 <div class="form-group"><label>اختر تاريخ ميلادك الكامل والملائم:</label><input type="date" id="birth-date"></div>
@@ -399,96 +384,66 @@
 
         </main>
 
-        <!-- منطقة المقالات لـ SEO وجوجل أدسينس -->
         <aside class="seo-zone">
             
-            <!-- 1. ضريبة القيمة المضافة -->
             <div id="vat-calc-seo" class="seo-panel active">
                 <h3>دليل ضريبة القيمة المضافة والشرح المالي الكامل</h3>
-                <p>تُعد ضريبة القيمة المضافة (VAT) واحدة من أشهر الضرائب غير المباشرة المطبقة عالمياً وفي الدول العربية لتنظيم ميزانيات الاستهلاك. تُفرض هذه الضريبة على السلع والخدمات في كل مرحلة من مراحل سلسلة التوريد.</p>
+                <p>تُعد ضريبة القيمة المضافة (VAT) واحدة من أشهر الضرائب غير المباشرة المطبقة عالمياً وفي الدول العربية لتنظيم ميزانيات الاستهلاك.</p>
                 <h4>كيفية حساب ضريبة القيمة المضافة يدوياً:</h4>
-                <p><strong>أولاً: عند إضافة الضريبة للمبلغ الأساسي:</strong><br>المعادلة: قيمة الضريبة = المبلغ الأساسي × (نسبة الضريبة ÷ 100).<br>الإجمالي النهائي = المبلغ الأساسي + قيمة الضريبة المقررة.</p>
-                <p><strong>ثانياً: عند استخراج الضريبة من السعر الإجمالي:</strong><br>المعادلة: المبلغ الأساسي = السعر الإجمالي النهائي ÷ (1 + (نسبة الضريبة ÷ 100)).<br>قيمة الضريبة الصافية = السعر الإجمالي - المبلغ الأساسي المستخرج.</p>
+                <p><strong>أولاً: عند إضافة الضريبة للمبلغ الأساسي:</strong><br>المعادلة: قيمة الضريبة = المبلغ الأساسي × (نسبة الضريبة ÷ 100).</p>
             </div>
 
-            <!-- 2. الخصومات والتنزيلات -->
             <div id="discount-calc-seo" class="seo-panel">
                 <h3>دليل حساب الخصومات والتخفيضات التجارية الذكية</h3>
-                <p>في مواسم التسوق الكبرى والتنزيلات، يحتاج المستهلك الواعي والتاجر الطموح إلى معرفة الفروقات الحقيقية لنسب الخصم لضمان الشفافية وتجنب العروض الوهمية والتلاعب بالأسعار في الأسواق المفتوحة.</p>
-                <h4>طريقة احتساب التخفيض رياضياً:</h4>
-                <p><strong>معادلة التوفير المالي:</strong> مقدار التوفير المالي المحقق = السعر الأصلي قبل الخصم × (نسبة الخصم المقررة ÷ 100).</p>
-                <p><strong>معادلة السعر النهائي:</strong> السعر النهائي بعد الخصم = السعر الأصلي - مقدار التوفير المالي.</p>
+                <p>في مواسم التسوق الكبرى والتنزيلات، يحتاج المستهلك الواعي والتاجر الطموح إلى معرفة الفروقات الحقيقية لنسب الخصم لضمان الشفافية.</p>
             </div>
 
-            <!-- 3. النسبة المئوية -->
             <div id="percent-calc-seo" class="seo-panel">
                 <h3>دليل حساب النسبة المئوية وتطبيقاتها العلمية والمالية</h3>
-                <p>تعتبر النسبة المئوية ركيزة أساسية في كافة المعاملات الإحصائية والرياضية والمالية؛ حيث تعبر عن أي عدد بكونه جزءاً أو كسرًا من مئة (100). تُستخدم على نطاق واسع في حساب درجات الطلاب، نسب النمو الاقتصادي، ومقارنة الإحصاءات العامة.</p>
-                <h4>المعادلة الرياضية العامة المعتمدة:</h4>
-                <p><strong>المعادلة الأساسية:</strong> النتيجة الصافية = (النسبة المطلوبة ÷ 100) × العدد الإجمالي الكلي.</p>
+                <p>تعتبر النسبة المئوية ركيزة أساسية في كافة المعاملات الإحصائية والرياضية والمالية؛ حيث تعبر عن أي عدد بكونه جزءاً من مئة.</p>
             </div>
 
-            <!-- 4. القروض والتمويل البنكي -->
             <div id="loan-calc-seo" class="seo-panel">
                 <h3>دليل حساب القروض الشخصية والتمويل الائتماني والبنكي</h3>
-                <p>قبل الإقدام على أخذ خطوة التمويل العقاري أو الشخصي من المصارف، يلجأ الأفراد والشركات إلى التخطيط الائتماني الصارم وجدولة الميزانية الاستهلاكية لتفادي التعثر المالي ومخاطر الفوائد المتراكمة.</p>
-                <h4>طريقة الحساب الافتراضية المتبعة للأقساط:</h4>
-                <p><strong>إجمالي الأرباح البنكية:</strong> مبلغ الفائدة/الربح = مبلغ القرض الأساسي × (نسبة الربح السنوية ÷ 100) × عدد سنوات السداد الإجمالية.</p>
-                <p><strong>القسط الشهري:</strong> قيمة القسط = المبلغ الإجمالي المستحق ÷ (عدد السنوات الإجمالية × 12 شهرًا).</p>
+                <p>قبل الإقدام على أخذ خطوة التمويل العقاري أو الشخصي من المصارف، يلجأ الأفراد والشركات إلى التخطيط الائتماني الصارم.</p>
             </div>
 
-            <!-- 5. الهامش والربح التجاري -->
             <div id="margin-calc-seo" class="seo-panel">
                 <h3>دليل إدارة الهوامش وحساب صافي الأرباح للتجارة والمتاجر</h3>
-                <p>الفرق الجوهري بين تكلفة شراء البضائع وسعر بيعها النهائي للمستهلك هو حجر الأساس لاستمرارية وتوسع أي مشروع تجاري ناجح، سواء كان متجراً إلكترونياً أو شركة ناشئة في الأسواق المحلية والعالمية.</p>
-                <h4>الفارق بين صافي الربح وهامش الربح المئوي:</h4>
-                <p><strong>أولاً: صافي الربح المالي:</strong> صافي الربح = سعر البيع المقترح - تكلفة المنتج الأساسية عليك.</p>
-                <p><strong>ثانياً: هامش الربح (Profit Margin):</strong> هامش الربح المئوي = (صافي الربح المحقق ÷ سعر البيع المقترح للمستهلك) × 100.</p>
+                <p>الفرق الجوهري بين تكلفة شراء البضائع وسعر بيعها النهائي للمستهلك هو حجر الأساس لاستمرارية وتوسع أي مشروع تجاري ناجح.</p>
             </div>
 
-            <!-- 6. الزكاة الشرعية -->
             <div id="zakat-calc-seo" class="seo-panel">
                 <h3>دليل فقه حساب زكاة الفطر وزكاة المال والمدخرات النقدي</h3>
-                <p>تضم الشريعة الإسلامية أنواعاً متعددة من الزكوات التي شرعها الله لتطهير النفس ونشر التكافل الاجتماعي بين المسلمين، ومن أبرزها زكاة المال النقدية وزكاة الفطر المباركة.</p>
+                <p>تضم الشريعة الإسلامية أنواعاً متعددة من الزكوات لتطهير النفس ونشر التكافل، ومن أبرزها زكاة المال النقدية وزكاة الفطر.</p>
                 <h4>أولاً: زكاة الفطر (الأبدان):</h4>
-                <p>هي زكاة مفروضة على كل مسلم يملك قوتاً يزيد عن حاجته وحاجة عياله في يوم العيد وليلته. وتُخرج طعاماً صاعاً من قوت البلد المعتاد (كالأرز أو التمر أو الزبيب أو القمح) قبل صلاة العيد تأكيداً للسنّة المعتمدة. يعادل الصاع النبوي تقريباً حوالي 3 كيلوجرامات عن الفرد الواحد لتأمين احتياجات الفقراء والمساكين وغمرهم ببهجة العيد.</p>
-                <h4>ثانياً: زكاة المال النقدية:</h4>
-                <p>تجب على السيولة المالية والأموال المدخرة التي بلغت النصاب الشرعي (ما يعادل قيمة 85 جراماً من الذهب النقي) ودار عليها حول هجري كامل في حوزة المالك دون أن تنقص عن حد النصاب المقر شرعاً، ونسبتها الثابتة فقهياً هي ربع العشر (2.5% من إجمالي المال الكلي).</p>
+                <p>تُخرج طعاماً صاعاً من قوت البلد المعتاد (كالأرز أو التمر) قبل صلاة العيد، ويعادل الصاع تقريباً حوالي 3 كيلوجرامات عن الفرد الواحد.</p>
             </div>
 
-            <!-- 7. مؤشر كتلة الجسم BMI -->
             <div id="bmi-calc-seo" class="seo-panel">
                 <h3>دليل الرعاية الصحية ومؤشر كتلة الجسم العالمي (BMI)</h3>
-                <p>يعتبر مؤشر كتلة الجسم (Body Mass Index) أداة القياس العالمية القياسية المعتمدة رسمياً من قبل منظمة الصحة العالمية (WHO) لتقييم مستويات الوزن البشري وتحديد تصنيفات النحافة أو الوزن المثالي أو السمنة.</p>
-                <h4>المعادلة الطبية الرياضية للـ BMI:</h4>
-                <p><strong>المعادلة المعتمدة:</strong> مؤشر الـ BMI = الوزن بالكيلوجرام ÷ (الطول بالمتر × الطول بالمتر).</p>
+                <p>يعتبر مؤشر كتلة الجسم أداة القياس العالمية القياسية المعتمدة رسمياً من قبل منظمة الصحة العالمية لتقييم مستويات الوزن.</p>
             </div>
 
-            <!-- 8. السعرات الحرارية والـ BMR -->
             <div id="calories-calc-seo" class="seo-panel">
                 <h3>دليل حساب السعرات الحرارية والتمثيل الغذائي والأيض</h3>
-                <p>لكل رياضي مهتم بلياقته البدنية وبناء كتلته العضلية أو تصفية الدهون وحرق الوزن، تعد معرفة السعرات الحرارية التي يستهلكها الجسم يومياً هي المفتاح السري للتحكم الكامل في تركيبة وبنية الجسم البشري.</p>
-                <h4>معدل الأيض الأساسي (BMR) والاحتياج اليومي:</h4>
-                <p>تستخدم حاسبتنا معادلة <strong>Mifflin-St Jeor</strong> الحديثة والأكثر دقة عالمياً لاستخراج مستويات حرق الطاقة الفورية.</p>
+                <p>لكل رياضي مهتم بلياقته البدنية وبناء كتلته العضلية، تعد معرفة السعرات الحرارية اليومية هي المفتاح السري للتحكم في وزنه.</p>
             </div>
 
-            <!-- 9. سوق تحويل العملات والصرف -->
             <div id="currency-calc-seo" class="seo-panel">
                 <h3>دليل أسواق الصرف الأجنبي وتحويل العملات بمرونة</h3>
-                <p>تعتبر حركة تبادل العملات الأجنبية ركناً أساسياً للمسافرين الدوليين، المتسوقين عبر الإنترنت من متاجر عالمية، والمستثمرين في التجارة الدولية الفورية. تتأثر أسعار الصرف بالسياسات النقدية والمؤشرات الاقتصادية العالمية لكل دولة.</p>
+                <p>تعتبر حركة تبادل العملات الأجنبية ركناً أساسياً للمسافرين الدوليين، المتسوقين عبر الإنترنت، والمستثمرين في التجارة الدولية.</p>
             </div>
 
-            <!-- 10. حساب العمر الزمني والتاريخ -->
             <div id="age-calc-seo" class="seo-panel">
                 <h3>دليل حساب العمر الدقيق والتوثيق والمتابعة الزمنية</h3>
-                <p>يساعد حساب العمر الزمني الدقيق بالسنوات والشهور والأيام الأفراد في تقديم المعاملات الرسمية والحكومية، تتبع مراحل النمو البدني، وتنظيم التخطيط الشخصي السنوي بشكل دوري سليم ومتكامل.</p>
+                <p>يساعد حساب العمر الزمني الدقيق بالسنوات والشهور والأيام الأفراد في تقديم المعاملات الرسمية والحكومية بدقة تامة.</p>
             </div>
 
         </aside>
 
     </div>
 
-    <!-- الفوتر مع روابط الصفحات القانونية -->
     <footer>
         <div class="footer-links">
             <a onclick="openModal('about-modal')">من نحن</a> | 
@@ -499,50 +454,20 @@
         <p>&copy; 2026 حاسبات العرب. كل الحقوق محفوظة لرفع الوعي الرقمي المالي والصحي في الوطن العربي.</p>
     </footer>
 
-    <!-- 1. من نحن -->
-    <div id="about-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('about-modal')">&times;</span>
-            <h2>من نحن</h2>
-            <p>موقع <strong>حاسبات العرب</strong> هو منصة رقمية رائدة وعربية مجانية 100%، تم تأسيسها بهدف إتاحة وتوفير حزمة متكاملة من الأدوات والحاسبات البرمجية الذكية فائقة الدقة والموثوقية لمساعدة كافة الأفراد في الوطن العربي.</p>
-        </div>
-    </div>
-
-    <!-- 2. سياسة الخصوصية -->
-    <div id="privacy-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('privacy-modal')">&times;</span>
-            <h2>سياسة الخصوصية ونظام الأمان</h2>
-            <p>في منصة حاسبات العرب، نضع خصوصية وأمان زوارنا الكرام على رأس أولوياتنا المهنية. نحن نؤكد بشكل قاطع أننا لا نقوم بجمع، أو حفظ، أو الاطلاع على أي بيانات مالية أو أرقام شخصية سرية تقوم بإدخالها.</p>
-        </div>
-    </div>
-
-    <!-- 3. الشروط والأحكام -->
-    <div id="terms-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('terms-modal')">&times;</span>
-            <h2>الشروط والأحكام والاستخدام</h2>
-            <p>يرجى قراءة الشروط التالية بعناية قبل استخدام موقع حاسبات العرب: إن كافة الأدوات والحاسبات البرمجية المتاحة عبر المنصة تُقدم مجاناً بالكامل كما هي، ولأغراض تعليمية وإرشادية فقط.</p>
-        </div>
-    </div>
-
-    <!-- 4. اتصل بنا -->
-    <div id="contact-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('contact-modal')">&times;</span>
-            <h2>اتصل بنا وقنوات التواصل الرسمية</h2>
-            <p>يسعدنا ويشرفنا دائماً في إدارة حاسبات العرب استقبال استفساراتكم وملاحظاتكم عبر البريد الإلكتروني الرسمي والوحيد:</p>
-            <p style="font-weight: bold; color: var(--secondary-color); text-align: center; margin: 20px 0; font-size: 18px;">hsablltwasl1@gmail.com</p>
-        </div>
-    </div>
+    <div id="about-modal" class="modal"><div class="modal-content"><span class="close-btn" onclick="closeModal('about-modal')">&times;</span><h2>من نحن</h2><p>موقع حاسبات العرب هو منصة رقمية رائدة توفر حزمة متكاملة من الأدوات البرمجية الذكية فائقة الدقة مجاناً.</p></div></div>
+    <div id="privacy-modal" class="modal"><div class="modal-content"><span class="close-btn" onclick="closeModal('privacy-modal')">&times;</span><h2>سياسة الخصوصية ونظام الأمان</h2><p>نحن نؤكد بشكل قاطع أننا لا نقوم بجمع، أو حفظ، أو الاطلاع على أي بيانات مالية تقوم بإدخالها مطلقاً.</p></div></div>
+    <div id="terms-modal" class="modal"><div class="modal-content"><span class="close-btn" onclick="closeModal('terms-modal')">&times;</span><h2>الشروط والأحكام والاستخدام</h2><p>إن كافة الأدوات والحاسبات البرمجية المتاحة عبر المنصة تُقدم مجاناً بالكامل كما هي، ولأغراض تعليمية وإرشادية فقط.</p></div></div>
+    <div id="contact-modal" class="modal"><div class="modal-content"><span class="close-btn" onclick="closeModal('contact-modal')">&times;</span><h2>اتصل بنا</h2><p>يسعدنا استقبال استفساراتكم وملاحظاتكم عبر البريد الإلكتروني الرسمي:</p><p style="font-weight: bold; color: var(--secondary-color); text-align: center; margin: 20px 0; font-size: 18px;">hsablltwasl1@gmail.com</p></div></div>
 
     <script>
-        // دالة التنقل العامة والموحدة المُصلحة بالكامل لتعمل بكفاءة
+        // دالة التنقل العامة والمحدثة لتتوافق مع اللاب توب والجوال 100%
         function switchTab(id) {
+            // إخفاء كل العناصر أولاً
             document.querySelectorAll('.calc-panel').forEach(p => p.style.display = 'none');
             document.querySelectorAll('.seo-panel').forEach(p => p.style.display = 'none');
             document.querySelectorAll('.sidebar-nav li').forEach(l => l.classList.remove('active'));
 
+            // إظهار العنصر المحدد وتفعيله
             document.getElementById(id).style.display = 'block';
             document.getElementById(id + '-seo').style.display = 'block';
             document.getElementById('li-' + id).classList.add('active');
@@ -564,15 +489,10 @@
             }
         }
 
-        // دالة فتح وإغلاق النوافذ المنبثقة القانونية
+        // التحكم في النوافذ المنبثقة
         function openModal(modalId) { document.getElementById(modalId).style.display = "block"; }
         function closeModal(modalId) { document.getElementById(modalId).style.display = "none"; }
-
-        window.onclick = function(event) {
-            if (event.target.className === 'modal') {
-                event.target.style.display = "none";
-            }
-        }
+        window.onclick = function(event) { if (event.target.className === 'modal') { event.target.style.display = "none"; } }
 
         // 1. حساب الضريبة VAT
         function calcVAT() {
@@ -642,10 +562,8 @@
         function calcZakatFitr() {
             let count = parseInt(document.getElementById('zakat-count').value);
             if(isNaN(count) || count <= 0) return alert('الرجاء إدخال عدد أفراد صحيح أكبر من الصفر');
-            let saa = count * 1; 
-            let kg = count * 3;   
-            document.getElementById('zf1').innerText = saa;
-            document.getElementById('zf2').innerText = kg;
+            document.getElementById('zf1').innerText = count * 1;
+            document.getElementById('zf2').innerText = count * 3;
             document.getElementById('z-fitr-res').style.display = 'block';
         }
 
@@ -653,8 +571,7 @@
         function calcZakatMal() {
             let amt = parseFloat(document.getElementById('zakat-amt').value);
             if(isNaN(amt) || amt <= 0) return alert('الرجاء إدخال مبلغ مالي صحيح أكبر من الصفر');
-            let zakat = amt * 0.025;
-            document.getElementById('zm1').innerText = zakat.toFixed(2);
+            document.getElementById('zm1').innerText = (amt * 0.025).toFixed(2);
             document.getElementById('z-mal-res').style.display = 'block';
         }
 
@@ -681,12 +598,9 @@
             let a = parseFloat(document.getElementById('cal-age').value);
             let g = document.getElementById('cal-gender').value;
             if(isNaN(w) || isNaN(h) || isNaN(a) || a<=0) return alert('الرجاء إكمال كافة مدخلات الجسم والسن لتوليد القيم الأيضية');
-            let bmr = 0;
-            if(g === 'male') bmr = 10*w + 6.25*h - 5*a + 5;
-            else bmr = 10*w + 6.25*h - 5*a - 161;
-            let maintenance = bmr * 1.2;
+            let bmr = (g === 'male') ? (10*w + 6.25*h - 5*a + 5) : (10*w + 6.25*h - 5*a - 161);
             document.getElementById('c1').innerText = bmr.toFixed(0);
-            document.getElementById('c2').innerText = maintenance.toFixed(0);
+            document.getElementById('c2').innerText = (bmr * 1.2).toFixed(0);
             document.getElementById('calories-res').style.display = 'block';
         }
 
@@ -696,12 +610,9 @@
             let from = document.getElementById('curr-from').value;
             let to = document.getElementById('curr-to').value;
             if(isNaN(amt) || amt <= 0) return alert('الرجاء إدخال مبلغ مالي صحيح أكبر من الصفر لإجراء عملية الصرف');
-            
             const rates = { USD: 1.0, SAR: 3.75, AED: 3.67, EGP: 47.50, KWD: 0.31, QAR: 3.64, BHD: 0.38, OMR: 0.39, EUR: 0.92, GBP: 0.79 };
-            let amountInUSD = amt / rates[from];
-            let convertedAmount = amountInUSD * rates[to];
-
-            document.getElementById('cr1').innerText = convertedAmount.toFixed(2) + ' ' + to;
+            let converted = (amt / rates[from]) * rates[to];
+            document.getElementById('cr1').innerText = converted.toFixed(2) + ' ' + to;
             document.getElementById('currency-res').style.display = 'block';
         }
 
@@ -709,22 +620,13 @@
         function calcAge() {
             let dateStr = document.getElementById('birth-date').value;
             if(!dateStr) return alert('الرجاء اختيار تاريخ ميلادك الكامل من التقويم أولاً');
-            let birth = new Date(dateStr);
-            let today = new Date();
-            
+            let birth = new Date(dateStr), today = new Date();
             let diff = today.getTime() - birth.getTime();
             if(diff < 0) return alert('عذراً! لا يمكن أن يكون تاريخ ميلادك في المستقبل الزمني!');
-            
-            let ageDate = new Date(diff);
-            let years = Math.abs(ageDate.getUTCFullYear() - 1970);
-            
+            let years = Math.abs(new Date(diff).getUTCFullYear() - 1970);
             let nextBirthday = new Date(today.getFullYear(), birth.getMonth(), birth.getDate());
-            if (today > nextBirthday) {
-                nextBirthday.setFullYear(today.getFullYear() + 1);
-            }
-            let timeToNext = nextBirthday.getTime() - today.getTime();
-            let daysToNext = Math.ceil(timeToNext / (1000 * 60 * 60 * 24));
-
+            if (today > nextBirthday) nextBirthday.setFullYear(today.getFullYear() + 1);
+            let daysToNext = Math.ceil((nextBirthday.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
             document.getElementById('a1').innerText = years;
             document.getElementById('a2').innerText = daysToNext;
             document.getElementById('age-res').style.display = 'block';
