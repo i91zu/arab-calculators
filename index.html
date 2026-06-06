@@ -3,21 +3,310 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حاسبات العرب</title>
+    <title>حاسبات العرب | أدوات وحاسبات رقمية مجانية</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-            background-color: #f4f4f9;
+        :root {
+            --primary-color: #0f172a;
+            --secondary-color: #0284c7;
+            --accent-color: #e2e8f0;
+            --text-color: #334155;
+            --light-bg: #f8fafc;
+            --card-bg: #ffffff;
         }
-        h1 {
-            color: #333;
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* الهيدر والشعار */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        header h1 {
+            font-size: 24px;
+            color: #f8fafc;
+        }
+
+        header span {
+            color: #38bdf8;
+        }
+
+        /* القسم الرئيسي */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+        }
+
+        .hero h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* الحاوية الرئيسية */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* كرت الحاسبة */
+        .calculator-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+        }
+
+        .calculator-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 22px;
+            border-bottom: 2px solid var(--light-bg);
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus {
+            border-color: var(--secondary-color);
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 14px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #0284c7;
+        }
+
+        /* النتائج */
+        .results-box {
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #f0f9ff;
+            border-radius: 8px;
+            border-right: 4px solid var(--secondary-color);
+            display: none;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .result-item:last-child {
+            margin-bottom: 0;
+            font-weight: bold;
+            font-size: 18px;
+            color: var(--primary-color);
+            border-top: 1px dashed #cbd5e1;
+            padding-top: 10px;
+        }
+
+        /* المقال والشرح الخاص بالـ SEO */
+        .seo-content {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+        }
+
+        .seo-content h4 {
+            color: var(--primary-color);
+            margin: 20px 0 10px 0;
+        }
+
+        .seo-content p {
+            margin-bottom: 15px;
+            font-size: 15px;
+            color: #475569;
+        }
+
+        /* الفوتر */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--primary-color);
+            color: #94a3b8;
+            margin-top: 60px;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
-    <h1>مرحباً بكم في موقع حاسبات العرب 👋</h1>
-    <p>هذه هي الصفحة الأولى لمشروعنا الجديد.</p>
+
+    <header>
+        <h1>حاسبات<span>العرب</span></h1>
+        <p>أدوات رقمية مجانية</p>
+    </header>
+
+    <section class="hero">
+        <h2>مرحباً بك في حاسبات العرب</h2>
+        <p>مجموعتك الشاملة من الحاسبات والأدوات العملية لإدارة مشاريعك، تجارتك، وأعمالك اليومية بكل سهولة ودقة.</p>
+    </section>
+
+    <div class="container">
+        <!-- قسم الحاسبة الرئيسي -->
+        <main class="calculator-card">
+            <h3>🧮 حاسبة ضريبة القيمة المضافة (VAT)</h3>
+            
+            <div class="form-group">
+                <label for="amount">المبلغ الأساسي (ريال/درهم/جنيه):</label>
+                <input type="number" id="amount" placeholder="أدخل المبلغ هنا" min="0" step="any">
+            </div>
+
+            <div class="form-group">
+                <label for="tax-rate">نسبة الضريبة (%):</label>
+                <select id="tax-rate">
+                    <option value="15" selected>15% (السعودية / نفوذ أعلى)</option>
+                    <option value="5">5% (الإمارات / عمان)</option>
+                    <option value="14">14% (مصر)</option>
+                    <option value="10">10%</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="calc-type">نوع العملية:</label>
+                <select id="calc-type">
+                    <option value="exclude" selected>المبلغ لا يشمل الضريبة (إضافة ضريبة)</option>
+                    <option value="include">المبلغ يشمل الضريبة (استخراج ضريبة)</option>
+                </select>
+            </div>
+
+            <button class="btn" onclick="calculateVAT()">احسب الآن</button>
+
+            <!-- صندوق عرض النتائج -->
+            <div class="results-box" id="results">
+                <div class="result-item">
+                    <span>المبلغ غير شامل الضريبة:</span>
+                    <span id="res-base">0.00</span>
+                </div>
+                <div class="result-item">
+                    <span>قيمة الضريبة المضافة:</span>
+                    <span id="res-tax">0.00</span>
+                </div>
+                <div class="result-item">
+                    <span>الإجمالي الشامل للضريبة:</span>
+                    <span id="res-total">0.00</span>
+                </div>
+            </div>
+        </main>
+
+        <!-- قسم المقال والشرح الجانبي للـ SEO وجوجل أدسينس -->
+        <aside class="seo-content">
+            <h3>ما هي ضريبة القيمة المضافة؟</h3>
+            <p>ضريبة القيمة المضافة (VAT) هي ضريبة غير مباشرة تُفرض على جميع السلع والخدمات التي يتم شراؤها وبيعها من قبل المنشآت، وتطبق في أكثر من 160 دولة حول العالم.</p>
+            
+            <h4>كيف تعمل هذه الحاسبة؟</h4>
+            <p>تتيح لك حاسبة ضريبة القيمة المضافة إمكانية حساب الضرائب بطريقتين:</p>
+            <p><strong>1. إضافة الضريبة:</strong> إذا كان لديك سعر المنتج الأساسي وتريد معرفة كم سيكون سعره النهائي بعد إضافة نسبة الـ 15% أو الـ 5%.</p>
+            <p><strong>2. استخراج الضريبة:</strong> إذا كنت قد دفعت مبلغاً إجمالياً بالفعل، وتريد معرفة القيمة الحقيقية للمنتج قبل فرض الضريبة عليه، وكم يبلغ مجمل الضريبة المستقطعة.</p>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 حاسبات العرب. جميع الحقوق محفوظة. تم التطوير لدعم رواد الأعمال وأصحاب المتاجر الرقمية.</p>
+    </footer>
+
+    <script>
+        function calculateVAT() {
+            const amount = parseFloat(document.getElementById('amount').value);
+            const taxRate = parseFloat(document.getElementById('tax-rate').value) / 100;
+            const calcType = document.getElementById('calc-type').value;
+            
+            if (isNaN(amount) || amount <= 0) {
+                alert('الرجاء إدخال مبلغ صحيح أكبر من الصفر.');
+                return;
+            }
+
+            let baseAmount = 0;
+            let taxAmount = 0;
+            let totalAmount = 0;
+
+            if (calcType === 'exclude') {
+                // المبلغ لا يشمل الضريبة ونريد إضافتها
+                baseAmount = amount;
+                taxAmount = amount * taxRate;
+                totalAmount = amount + taxAmount;
+            } else {
+                // المبلغ يشمل الضريبة ونريد استخراجها
+                totalAmount = amount;
+                baseAmount = amount / (1 + taxRate);
+                taxAmount = totalAmount - baseAmount;
+            }
+
+            // عرض النتائج في الصفحة وتنسيقها لرقمنة خانتين عشريتين
+            document.getElementById('res-base').innerText = baseAmount.toFixed(2) + ' ريال';
+            document.getElementById('res-tax').innerText = taxAmount.toFixed(2) + ' ريال';
+            document.getElementById('res-total').innerText = totalAmount.toFixed(2) + ' ريال';
+            
+            // إظهار صندوق النتائج بحركة سلسة
+            document.getElementById('results').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
