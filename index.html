@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>حاسبات العرب | منصة الأدوات والحاسبات الرقمية المجانية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #0f172a;
@@ -18,7 +21,7 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Cairo', sans-serif;
         }
 
         body {
@@ -37,7 +40,7 @@
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
         }
 
-        header h1 { font-size: 24px; }
+        header h1 { font-size: 24px; font-weight: 800; }
         header span { color: var(--accent-color); }
 
         .hero {
@@ -47,7 +50,7 @@
             color: white;
         }
 
-        .hero h2 { font-size: 28px; margin-bottom: 10px; }
+        .hero h2 { font-size: 28px; margin-bottom: 10px; font-weight: 700; }
         .hero p { color: #94a3b8; max-width: 600px; margin: 0 auto; font-size: 15px; }
 
         .container {
@@ -78,6 +81,7 @@
             margin-bottom: 15px;
             border-bottom: 2px solid var(--light-bg);
             padding-bottom: 8px;
+            font-weight: 700;
         }
 
         .sidebar-nav ul { list-style: none; }
@@ -108,7 +112,7 @@
 
         .calc-panel { display: none; }
         .calc-panel.active { display: block; }
-        .calc-panel h3 { color: var(--primary-color); margin-bottom: 20px; font-size: 22px; }
+        .calc-panel h3 { color: var(--primary-color); margin-bottom: 20px; font-size: 22px; font-weight: 700; }
 
         .form-group { margin-bottom: 15px; }
         .form-group label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 14px; }
@@ -140,10 +144,29 @@
         }
         .seo-panel { display: none; }
         .seo-panel.active { display: block; }
-        .seo-zone h3 { font-size: 16px; color: var(--primary-color); margin-bottom: 10px; }
-        .seo-zone p { font-size: 13px; color: #475569; margin-bottom: 10px; }
+        .seo-zone h3 { font-size: 16px; color: var(--primary-color); margin-bottom: 10px; font-weight: 700; }
+        .seo-zone p { font-size: 13px; color: #475569; margin-bottom: 10px; text-align: justify; }
 
-        footer { text-align: center; padding: 25px; background-color: var(--primary-color); color: #94a3b8; margin-top: 40px; font-size: 13px; }
+        /* الفوتر والروابط القانونية */
+        footer { text-align: center; padding: 35px; background-color: var(--primary-color); color: #94a3b8; margin-top: 40px; font-size: 13px; }
+        .footer-links { margin-bottom: 15px; }
+        .footer-links a { color: var(--accent-color); text-decoration: none; margin: 0 10px; font-weight: 600; cursor: pointer; }
+        .footer-links a:hover { text-decoration: underline; }
+
+        /* نوافذ الصفحات القانونية المنبثقة (Modal) */
+        .modal {
+            display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.5); overflow: auto; padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fff; margin: 5% auto; padding: 30px; border-radius: 12px; width: 60%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); direction: rtl; text-align: right;
+        }
+        @media (max-width: 768px) { .modal-content { width: 90%; } }
+        .close-btn { color: #aaa; float: left; font-size: 28px; font-weight: bold; cursor: pointer; }
+        .close-btn:hover { color: #000; }
+        .modal h2 { margin-bottom: 15px; color: var(--primary-color); font-weight: 700; }
+        .modal p { font-size: 14px; color: #475569; margin-bottom: 12px; }
     </style>
 </head>
 <body>
@@ -181,10 +204,7 @@
             <div id="vat-calc" class="calc-panel active">
                 <h3>🧮 حاسبة ضريبة القيمة المضافة</h3>
                 <div class="form-group"><label>المبلغ الأساسي:</label><input type="number" id="vat-amount" placeholder="أدخل المبلغ"></div>
-                <div class="form-group">
-                    <label>نسبة الضريبة:</label>
-                    <select id="vat-rate"><option value="15">15% (السعودية)</option><option value="5">5% (الإمارات/عمان)</option><option value="14">14% (مصر)</option></select>
-                </div>
+                <div class="form-group"><label>نسبة الضريبة يدوياً (%):</label><input type="number" id="vat-rate" value="15" placeholder="مثال: 15"></div>
                 <div class="form-group">
                     <label>نوع العملية:</label>
                     <select id="vat-type"><option value="exclude">إضافة ضريبة للمبلغ</option><option value="include">استخراج الضريبة من المبلغ</option></select>
@@ -279,15 +299,37 @@
             </div>
 
             <div id="currency-calc" class="calc-panel">
-                <h3>💵 حاسبة تحويل العملات (ثابتة تيسيرية)</h3>
+                <h3>💵 حاسبة تحويل العملات العربية والعالمية</h3>
                 <div class="form-group"><label>المبلغ المراد تحويله:</label><input type="number" id="curr-amt" placeholder="المبلغ"></div>
                 <div class="form-group">
                     <label>من عملة:</label>
-                    <select id="curr-from"><option value="USD">دولار أمريكي</option><option value="SAR">ريال سعودي</option></select>
+                    <select id="curr-from">
+                        <option value="SAR">ريال سعودي (SAR)</option>
+                        <option value="USD">دولار أمريكي (USD)</option>
+                        <option value="AED">درهم إماراتي (AED)</option>
+                        <option value="EGP">جنيه مصري (EGP)</option>
+                        <option value="KWD">دينار كويتي (KWD)</option>
+                        <option value="QAR">ريال قطري (QAR)</option>
+                        <option value="BHD">دينار بحريني (BHD)</option>
+                        <option value="OMR">ريال عماني (OMR)</option>
+                        <option value="EUR">يورو (EUR)</option>
+                        <option value="GBP">جنيه إسترليني (GBP)</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label>إلى عملة:</label>
-                    <select id="curr-to"><option value="SAR">ريال سعودي</option><option value="USD">دولار أمريكي</option></select>
+                    <select id="curr-to">
+                        <option value="USD">دولار أمريكي (USD)</option>
+                        <option value="SAR" selected>ريال سعودي (SAR)</option>
+                        <option value="AED">درهم إماراتي (AED)</option>
+                        <option value="EGP">جنيه مصري (EGP)</option>
+                        <option value="KWD">دينار كويتي (KWD)</option>
+                        <option value="QAR">ريال قطري (QAR)</option>
+                        <option value="BHD">دينار بحريني (BHD)</option>
+                        <option value="OMR">ريال عماني (OMR)</option>
+                        <option value="EUR">يورو (EUR)</option>
+                        <option value="GBP">جنيه إسترليني (GBP)</option>
+                    </select>
                 </div>
                 <button class="btn" onclick="calcCurrency()">حول الآن</button>
                 <div class="results-box" id="currency-res">
@@ -342,7 +384,7 @@
             </div>
             <div id="currency-calc-seo" class="seo-panel">
                 <h3>سوق الصرف والعملات</h3>
-                <p>يسهل تبادل القيم والعملات على المسافرين والمتعاملين في التجارة الدولية معرفة الفروقات التقريبية لحجم السيولة النقدية المستبدلة.</p>
+                <p>يسهل تبادل القيم والعملات على المسافرين والمتعاملين في التجارة الدولية معرفة الفروقات التقريبية لحجم السيولة النقدية المستبدلة في العالم العربي والعالمي.</p>
             </div>
             <div id="age-calc-seo" class="seo-panel">
                 <h3>التاريخ والتوثيق الزمني</h3>
@@ -353,8 +395,49 @@
     </div>
 
     <footer>
+        <div class="footer-links">
+            <a onclick="openModal('about-modal')">من نحن</a> | 
+            <a onclick="openModal('privacy-modal')">سياسة الخصوصية</a> | 
+            <a onclick="openModal('terms-modal')">الشروط والأحكام</a> | 
+            <a onclick="openModal('contact-modal')">اتصل بنا</a>
+        </div>
         <p>&copy; 2026 حاسبات العرب. كل الحقوق محفوظة لرفع الوعي الرقمي المالي والصحي.</p>
     </footer>
+
+    <div id="about-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('about-modal')">&times;</span>
+            <h2>من نحن</h2>
+            <p>موقع <strong>حاسبات العرب</strong> هو منصة رقمية عربية مجانية تهدف إلى تقديم مجموعة واسعة من الأدوات والحاسبات البرمجية الذكية والدقيقة لمساعدة الأفراد، أصحاب المشاريع، ورواد المتاجر الإلكترونية في تنظيم وإدارة حساباتهم اليومية والمالية والصحية بكل سهولة ومن مكان واحد.</p>
+        </div>
+    </div>
+
+    <div id="privacy-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('privacy-modal')">&times;</span>
+            <h2>سياسة الخصوصية</h2>
+            <p>في حاسبات العرب، نولي خصوصية زوارنا أهمية بالغة. نحن لا نقوم بجمع أو حفظ أي بيانات مالية أو شخصية تقوم بإدخالها داخل الحاسبات؛ فكل العمليات الحسابية تتم محلياً داخل متصفحك.</p>
+            <p>نحن نستخدم إعلانات الطرف الثالث مثل Google AdSense، والتي قد تستخدم ملفات تعريف الارتباط (Cookies) لتحسين تجربة الإعلانات وظهورها بما يناسب اهتماماتك.</p>
+        </div>
+    </div>
+
+    <div id="terms-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('terms-modal')">&times;</span>
+            <h2>الشروط والأحكام</h2>
+            <p>باستخدامك لموقع حاسبات العرب، فإنك توافق على الشروط التالية: جميع الأدوات والحاسبات المتوفرة في الموقع تقدم مجاناً كما هي ولأغراض تعليمية وتيسيرية فقط. وعلى الرغم من حرصنا البالغ على دقة المعادلات، لا نتحمل أي مسؤولية قانونية أو مالية نتيجة أي قرارات تُبنى على نتائج هذه الحاسبات.</p>
+        </div>
+    </div>
+
+    <div id="contact-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('contact-modal')">&times;</span>
+            <h2>اتصل بنا</h2>
+            <p>يسعدنا دائماً استقبال استفساراتكم أو اقتراحاتكم لتطوير حاسبات جديدة تخدم العالم العربي.</p>
+            <p>يمكنكم التواصل معنا مباشرة عبر البريد الإلكتروني الرسمي للمشروع:</p>
+            <p style="font-weight: bold; color: var(--secondary-color); text-align: center; margin: 15px 0;">support@arab-calculators.com</p>
+        </div>
+    </div>
 
     <script>
         // دالة التنقل العامة والموحدة
@@ -368,12 +451,24 @@
             event.currentTarget.classList.add('active');
         }
 
+        // دالة فتح النوافذ القانونية
+        function openModal(modalId) { document.getElementById(modalId).style.display = "block"; }
+        // دالة إغلاق النوافذ القانونية
+        function closeModal(modalId) { document.getElementById(modalId).style.display = "none"; }
+
+        // أغلق النافذة إذا ضغط المستخدم خارج الصندوق
+        window.onclick = function(event) {
+            if (event.target.className === 'modal') {
+                event.target.style.display = "none";
+            }
+        }
+
         // 1. الضريبة
         function calcVAT() {
             let amt = parseFloat(document.getElementById('vat-amount').value);
             let rate = parseFloat(document.getElementById('vat-rate').value) / 100;
             let type = document.getElementById('vat-type').value;
-            if(isNaN(amt) || amt <= 0) return alert('أدخل مبلغ صحيح');
+            if(isNaN(amt) || amt <= 0 || isNaN(rate) || rate < 0) return alert('الرجاء إدخال أرقام صحيحة');
             let base=0, tax=0, total=0;
             if(type === 'exclude') { base=amt; tax=amt*rate; total=amt+tax; }
             else { total=amt; base=amt/(1+rate); tax=total-base; }
@@ -473,16 +568,32 @@
             document.getElementById('calories-res').style.display = 'block';
         }
 
-        // 9. عملات
+        // 9. تحويل العملات المطور والشامل
         function calcCurrency() {
             let amt = parseFloat(document.getElementById('curr-amt').value);
             let from = document.getElementById('curr-from').value;
             let to = document.getElementById('curr-to').value;
-            if(isNaN(amt)) return alert('أدخل مبلغ');
-            let res = amt;
-            if(from === 'USD' && to === 'SAR') res = amt * 3.75;
-            else if(from === 'SAR' && to === 'USD') res = amt / 3.75;
-            document.getElementById('cr1').innerText = res.toFixed(2) + ' ' + to;
+            if(isNaN(amt) || amt <= 0) return alert('الرجاء إدخال مبلغ صحيح أكبر من الصفر');
+            
+            // أسعار الصرف التقريبية الثابتة مقابل الدولار الأمريكي (USD كمرجع)
+            const rates = {
+                USD: 1.0,
+                SAR: 3.75,
+                AED: 3.67,
+                EGP: 47.50,
+                KWD: 0.31,
+                QAR: 3.64,
+                BHD: 0.38,
+                OMR: 0.39,
+                EUR: 0.92,
+                GBP: 0.79
+            };
+
+            // التحويل من العملة الأساسية إلى دولار، ثم من دولار إلى العملة المستهدفة
+            let amountInUSD = amt / rates[from];
+            let convertedAmount = amountInUSD * rates[to];
+
+            document.getElementById('cr1').innerText = convertedAmount.toFixed(2) + ' ' + to;
             document.getElementById('currency-res').style.display = 'block';
         }
 
