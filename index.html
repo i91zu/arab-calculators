@@ -54,15 +54,15 @@
         .hero p { color: #94a3b8; max-width: 600px; margin: 0 auto; font-size: 15px; }
 
         .container {
-            max-width: 1300px;
+            max-width: 1400px;
             margin: 30px auto;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: 280px 1fr 300px;
+            grid-template-columns: 280px 1fr 350px;
             gap: 25px;
         }
 
-        @media (max-width: 1024px) {
+        @media (max-width: 1100px) {
             .container { grid-template-columns: 1fr; }
         }
 
@@ -137,15 +137,16 @@
             border-top: 1px dashed #cbd5e1; padding-top: 8px;
         }
 
-        /* منطقة الـ SEO */
+        /* منطقة الـ SEO والمقالات الموسعة */
         .seo-zone {
-            background-color: var(--card-bg); border-radius: 12px; padding: 20px;
+            background-color: var(--card-bg); border-radius: 12px; padding: 25px;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05); height: fit-content;
         }
         .seo-panel { display: none; }
         .seo-panel.active { display: block; }
-        .seo-zone h3 { font-size: 16px; color: var(--primary-color); margin-bottom: 10px; font-weight: 700; }
-        .seo-zone p { font-size: 13px; color: #475569; margin-bottom: 10px; text-align: justify; }
+        .seo-zone h3 { font-size: 18px; color: var(--primary-color); margin-bottom: 12px; font-weight: 700; border-bottom: 2px solid var(--light-bg); padding-bottom: 6px; }
+        .seo-zone h4 { font-size: 14px; color: var(--secondary-color); margin: 12px 0 4px 0; font-weight: 700; }
+        .seo-zone p { font-size: 13px; color: #475569; margin-bottom: 10px; text-align: justify; line-height: 1.7; }
 
         /* الفوتر والروابط القانونية */
         footer { text-align: center; padding: 35px; background-color: var(--primary-color); color: #94a3b8; margin-top: 40px; font-size: 13px; }
@@ -166,25 +167,25 @@
         .close-btn { color: #aaa; float: left; font-size: 28px; font-weight: bold; cursor: pointer; }
         .close-btn:hover { color: #000; }
         .modal h2 { margin-bottom: 15px; color: var(--primary-color); font-weight: 700; }
-        .modal p { font-size: 14px; color: #475569; margin-bottom: 12px; }
+        .modal p { font-size: 14px; color: #475569; margin-bottom: 12px; line-height: 1.6; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>حاسبات<span>العرب</span></h1>
-        <p>موسوعة الأدوات الحسابية</p>
+        <p>موسوعة الأدوات الحسابية الشاملة</p>
     </header>
 
     <section class="hero">
-        <h2>المنصة الموحدة للحاسبات الرقمية</h2>
-        <p>كل ما تحتاجه من أدوات مالية، تجارية، وصحية في مكان واحد ومصممة بأعلى معايير الدقة.</p>
+        <h2>المنصة العربية الموحدة للحاسبات الرقمية</h2>
+        <p>كل ما تحتاجه من أدوات مالية، تجارية، وصحية في مكان واحد ومصممة بأعلى معايير الدقة والسرعة.</p>
     </section>
 
     <div class="container">
         
         <nav class="sidebar-nav">
-            <h3>اختر الحاسبة:</h3>
+            <h3>اختر الحاسبة المتاحة:</h3>
             <ul>
                 <li class="active" onclick="switchTab('vat-calc')">🧮 حاسبة الضريبة VAT</li>
                 <li onclick="switchTab('discount-calc')">🏷️ حاسبة الخصومات</li>
@@ -195,7 +196,7 @@
                 <li onclick="switchTab('bmi-calc')">⚖️ حاسبة كتلة الجسم BMI</li>
                 <li onclick="switchTab('calories-calc')">🔥 حاسبة السعرات الحرارية</li>
                 <li onclick="switchTab('currency-calc')">💵 حاسبة تحويل العملات</li>
-                <li onclick="switchTab('age-calc')">📅 حاسبة العمر والبرج</li>
+                <li onclick="switchTab('age-calc')">📅 حاسبة العمر الدقيقة</li>
             </ul>
         </nav>
 
@@ -209,7 +210,7 @@
                     <label>نوع العملية:</label>
                     <select id="vat-type"><option value="exclude">إضافة ضريبة للمبلغ</option><option value="include">استخراج الضريبة من المبلغ</option></select>
                 </div>
-                <button class="btn" onclick="calcVAT()">احسب</button>
+                <button class="btn" onclick="calcVAT()">احسب الضريبة</button>
                 <div class="results-box" id="vat-res">
                     <div class="result-item"><span>المبلغ الأساسي:</span><span id="v1">0.00</span></div>
                     <div class="result-item"><span>قيمة الضريبة:</span><span id="v2">0.00</span></div>
@@ -219,90 +220,90 @@
 
             <div id="discount-calc" class="calc-panel">
                 <h3>🏷️ حاسبة الخصومات والتنزيلات</h3>
-                <div class="form-group"><label>السعر الأصلي:</label><input type="number" id="disc-price" placeholder="السعر قبل الخصم"></div>
-                <div class="form-group"><label>نسبة الخصم (%):</label><input type="number" id="disc-pct" placeholder="مثال: 20"></div>
-                <button class="btn" onclick="calcDiscount()">احسب الخصم</button>
+                <div class="form-group"><label>السعر الأصلي للمنتج:</label><input type="number" id="disc-price" placeholder="السعر قبل الخصم"></div>
+                <div class="form-group"><label>نسبة الخصم المقررة (%):</label><input type="number" id="disc-pct" placeholder="مثال: 20"></div>
+                <button class="btn" onclick="calcDiscount()">احسب القيمة بعد الخصم</button>
                 <div class="results-box" id="disc-res">
-                    <div class="result-item"><span>مقدار التوفير:</span><span id="d1">0.00</span></div>
-                    <div class="result-item"><span>السعر بعد الخصم:</span><span id="d2">0.00</span></div>
+                    <div class="result-item"><span>مقدار التوفير المالي:</span><span id="d1">0.00</span></div>
+                    <div class="result-item"><span>السعر النهائي بعد الخصم:</span><span id="d2">0.00</span></div>
                 </div>
             </div>
 
             <div id="percent-calc" class="calc-panel">
                 <h3>📊 حاسبة النسبة المئوية الشاملة</h3>
-                <div class="form-group"><label>كم تساوي النسبة:</label><input type="number" id="per-pct" placeholder="مثال: 10"></div>
-                <div class="form-group"><label>من العدد الإجمالي:</label><input type="number" id="per-total" placeholder="مثال: 500"></div>
+                <div class="form-group"><label>كم تساوي النسبة المطلوبة (%):</label><input type="number" id="per-pct" placeholder="مثال: 10"></div>
+                <div class="form-group"><label>من العدد الإجمالي الكامل:</label><input type="number" id="per-total" placeholder="مثال: 500"></div>
                 <button class="btn" onclick="calcPercent()">احسب النسبة</button>
                 <div class="results-box" id="per-res">
-                    <div class="result-item"><span>النتيجة:</span><span id="p1">0.00</span></div>
+                    <div class="result-item"><span>القيمة الصافية للنسبة:</span><span id="p1">0.00</span></div>
                 </div>
             </div>
 
             <div id="loan-calc" class="calc-panel">
                 <h3>🏦 حاسبة القروض والتمويل البنكي</h3>
-                <div class="form-group"><label>مبلغ التمويل الإجمالي:</label><input type="number" id="loan-amt" placeholder="أدخل مبلغ القرض"></div>
-                <div class="form-group"><label>نسبة الربح السنوية (%):</label><input type="number" id="loan-rate" placeholder="مثال: 3.5"></div>
-                <div class="form-group"><label>فترة السداد (بالسنوات):</label><input type="number" id="loan-years" placeholder="مثال: 5"></div>
-                <button class="btn" onclick="calcLoan()">احسب الأقساط</button>
+                <div class="form-group"><label>مبلغ التمويل الإجمالي (أصل القرض):</label><input type="number" id="loan-amt" placeholder="أدخل مبلغ القرض"></div>
+                <div class="form-group"><label>نسبة ربح أو فائدة البنك السنوية (%):</label><input type="number" id="loan-rate" placeholder="مثال: 3.5"></div>
+                <div class="form-group"><label>فترة السداد الإجمالية (بالسنوات):</label><input type="number" id="loan-years" placeholder="مثال: 5"></div>
+                <button class="btn" onclick="calcLoan()">احسب ميزانية الأقساط</button>
                 <div class="results-box" id="loan-res">
-                    <div class="result-item"><span>إجمالي الفوائد:</span><span id="l1">0.00</span></div>
-                    <div class="result-item"><span>المبلغ الإجمالي المردود:</span><span id="l2">0.00</span></div>
-                    <div class="result-item"><span>القسط الشهري التقريبي:</span><span id="l3">0.00</span></div>
+                    <div class="result-item"><span>إجمالي الأرباح/الفوائد المضافة:</span><span id="l1">0.00</span></div>
+                    <div class="result-item"><span>المبلغ الإجمالي المستحق للمصرف:</span><span id="l2">0.00</span></div>
+                    <div class="result-item"><span>القسط الشهري التقريبي الواجب سداده:</span><span id="l3">0.00</span></div>
                 </div>
             </div>
 
             <div id="margin-calc" class="calc-panel">
                 <h3>📈 حاسبة الهامش والربح التجاري</h3>
-                <div class="form-group"><label>تكلفة المنتج البضاعة عليك:</label><input type="number" id="cost-amt" placeholder="تكلفة الشراء"></div>
-                <div class="form-group"><label>سعر البيع المقترح للمستهلك:</label><input type="number" id="revenue-amt" placeholder="سعر البيع"></div>
-                <button class="btn" onclick="calcMargin()">احسب الهامش</button>
+                <div class="form-group"><label>تكلفة المنتج أو البضاعة الإجمالية عليك:</label><input type="number" id="cost-amt" placeholder="تكلفة الشراء الأساسية"></div>
+                <div class="form-group"><label>سعر البيع النهائي المقترح للمستهلك:</label><input type="number" id="revenue-amt" placeholder="سعر البيع النهائي"></div>
+                <button class="btn" onclick="calcMargin()">احسب مؤشرات الربحية</button>
                 <div class="results-box" id="margin-res">
-                    <div class="result-item"><span>صافي ربحك المالي:</span><span id="m1">0.00</span></div>
-                    <div class="result-item"><span>هامش الربح (Profit Margin):</span><span id="m2">0.00%</span></div>
+                    <div class="result-item"><span>صافي ربحك المالي المحقق:</span><span id="m1">0.00</span></div>
+                    <div class="result-item"><span>هامش الربح التجاري (Profit Margin):</span><span id="m2">0.00%</span></div>
                 </div>
             </div>
 
             <div id="zakat-calc" class="calc-panel">
-                <h3>💰 حاسبة الزكاة الشرعية</h3>
-                <div class="form-group"><label>إجمالي المال المدخر (الذي حال عليه الحول وبلغ النصاب):</label><input type="number" id="zakat-amt" placeholder="أدخل مقدار المال"></div>
-                <button class="btn" onclick="calcZakat()">احسب قيمة الزكاة</button>
+                <h3>💰 حاسبة الزكاة الشرعية للأموال النقدية</h3>
+                <div class="form-group"><label>إجمالي المال المدخر (الذي حال عليه الحول الهجري وبلغ النصاب القانوني الشرعي):</label><input type="number" id="zakat-amt" placeholder="أدخل مقدار السيولة المالية"></div>
+                <button class="btn" onclick="calcZakat()">احسب قيمة الزكاة الواجبة</button>
                 <div class="results-box" id="zakat-res">
-                    <div class="result-item"><span>مقدار الزكاة الواجبة (2.5%):</span><span id="z1">0.00</span></div>
+                    <div class="result-item"><span>مقدار الزكاة الشرعية الواجبة إخراجها (2.5%):</span><span id="z1">0.00</span></div>
                 </div>
             </div>
 
             <div id="bmi-calc" class="calc-panel">
                 <h3>⚖️ حاسبة مؤشر كتلة الجسم (BMI)</h3>
-                <div class="form-group"><label>الوزن (بالكيلو جرام):</label><input type="number" id="bmi-weight" placeholder="مثال: 70"></div>
-                <div class="form-group"><label>الطول (بالسنتمتر):</label><input type="number" id="bmi-height" placeholder="مثال: 175"></div>
-                <button class="btn" onclick="calcBMI()">احسب كتلة الجسم</button>
+                <div class="form-group"><label>الوزن الحالي (بالكيلو جرام):</label><input type="number" id="bmi-weight" placeholder="مثال: 70"></div>
+                <div class="form-group"><label>الطول الكامل (بالسنتمتر):</label><input type="number" id="bmi-height" placeholder="مثال: 175"></div>
+                <button class="btn" onclick="calcBMI()">احسب كتلة الجسم وتصنيفها</button>
                 <div class="results-box" id="bmi-res">
-                    <div class="result-item"><span>مؤشر الـ BMI الحالي:</span><span id="b1">0.00</span></div>
-                    <div class="result-item"><span>حالة الجسم التقريبية:</span><span id="b2">--</span></div>
+                    <div class="result-item"><span>مؤشر الـ BMI الحالي لك:</span><span id="b1">0.00</span></div>
+                    <div class="result-item"><span>الحالة الصحية والتقييم لجسمك:</span><span id="b2">--</span></div>
                 </div>
             </div>
 
             <div id="calories-calc" class="calc-panel">
-                <h3>🔥 حاسبة السعرات الحرارية والـ BMR</h3>
-                <div class="form-group"><label>الوزن (كجم):</label><input type="number" id="cal-weight" placeholder="الوزن"></div>
-                <div class="form-group"><label>الطول (سم):</label><input type="number" id="cal-height" placeholder="الطول"></div>
-                <div class="form-group"><label>العمر (بالسنوات):</label><input type="number" id="cal-age" placeholder="العمر"></div>
+                <h3>🔥 حاسبة السعرات الحرارية والـ BMR الأيضي</h3>
+                <div class="form-group"><label>الوزن الحالي (كجم):</label><input type="number" id="cal-weight" placeholder="الوزن"></div>
+                <div class="form-group"><label>الطول الكامل (سم):</label><input type="number" id="cal-height" placeholder="الطول"></div>
+                <div class="form-group"><label>العمر الحالي (بالسنوات):</label><input type="number" id="cal-age" placeholder="العمر"></div>
                 <div class="form-group">
-                    <label>الجنس:</label>
+                    <label>الجنس البيولوجي:</label>
                     <select id="cal-gender"><option value="male">ذكر</option><option value="female">أنثى</option></select>
                 </div>
-                <button class="btn" onclick="calcCalories()">احسب احتياجك</button>
+                <button class="btn" onclick="calcCalories()">احسب الاحتياج السعري اليومي</button>
                 <div class="results-box" id="calories-res">
-                    <div class="result-item"><span>معدل الأيض الأساسي (BMR):</span><span id="c1">0.00</span> كالوري</div>
-                    <div class="result-item"><span>الاحتياج اليومي لتثبيت الوزن:</span><span id="c2">0.00</span> كالوري</div>
+                    <div class="result-item"><span>معدل الأيض الأساسي والسكوني (BMR):</span><span id="c1">0.00</span> طاقة/كالوري</div>
+                    <div class="result-item"><span>الاحتياج اليومي المقدر لتثبيت الوزن:</span><span id="c2">0.00</span> طاقة/كالوري</div>
                 </div>
             </div>
 
             <div id="currency-calc" class="calc-panel">
                 <h3>💵 حاسبة تحويل العملات العربية والعالمية</h3>
-                <div class="form-group"><label>المبلغ المراد تحويله:</label><input type="number" id="curr-amt" placeholder="المبلغ"></div>
+                <div class="form-group"><label>المبلغ المالي المراد تحويله:</label><input type="number" id="curr-amt" placeholder="المبلغ المالي"></div>
                 <div class="form-group">
-                    <label>من عملة:</label>
+                    <label>من عملة الصرف الأصلية:</label>
                     <select id="curr-from">
                         <option value="SAR">ريال سعودي (SAR)</option>
                         <option value="USD">دولار أمريكي (USD)</option>
@@ -317,7 +318,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>إلى عملة:</label>
+                    <label>إلى عملة الصرف المستهدفة:</label>
                     <select id="curr-to">
                         <option value="USD">دولار أمريكي (USD)</option>
                         <option value="SAR" selected>ريال سعودي (SAR)</option>
@@ -331,65 +332,121 @@
                         <option value="GBP">جنيه إسترليني (GBP)</option>
                     </select>
                 </div>
-                <button class="btn" onclick="calcCurrency()">حول الآن</button>
+                <button class="btn" onclick="calcCurrency()">حول قيمة العملة الآن</button>
                 <div class="results-box" id="currency-res">
-                    <div class="result-item"><span>مبلغ التحويل الصافي:</span><span id="cr1">0.00</span></div>
+                    <div class="result-item"><span>مبلغ التحويل الصافي النهائي:</span><span id="cr1">0.00</span></div>
                 </div>
             </div>
 
             <div id="age-calc" class="calc-panel">
-                <h3>📅 حاسبة العمر الدقيقة والبرج الفلكي</h3>
-                <div class="form-group"><label>اختر تاريخ ميلادك الكامل:</label><input type="date" id="birth-date"></div>
-                <button class="btn" onclick="calcAge()">احسب عمرك</button>
+                <h3>📅 حاسبة العمر الدقيقة والزمن التنازلي</h3>
+                <div class="form-group"><label>اختر تاريخ ميلادك الكامل والملائم:</label><input type="date" id="birth-date"></div>
+                <button class="btn" onclick="calcAge()">احسب عمرك الزمني</button>
                 <div class="results-box" id="age-res">
-                    <div class="result-item"><span>العمر بالسنوات:</span><span id="a1">0</span> سنة</div>
-                    <div class="result-item"><span>برجك الشمسي التقريبي:</span><span id="a2">--</span></div>
+                    <div class="result-item"><span>العمر بالسنوات الكاملة:</span><span id="a1">0</span> سنة</div>
+                    <div class="result-item"><span>الأيام المتبقية ليوم ميلادك القادم:</span><span id="a2">--</span> يوم</div>
                 </div>
             </div>
 
         </main>
 
         <aside class="seo-zone">
+            
             <div id="vat-calc-seo" class="seo-panel active">
-                <h3>دليل ضريبة القيمة المضافة</h3>
-                <p>تعتبر ضريبة القيمة المضافة من أهم الضرائب المباشرة المطبقة في الأنظمة المالية لتنظيم الأسواق وحساب الاستهلاك بدقة واحترافية عالية.</p>
+                <h3>دليل ضريبة القيمة المضافة والشرح المالي الكامل</h3>
+                <p>تُعد ضريبة القيمة المضافة (VAT) واحدة من أشهر الضرائب غير المباشرة المطبقة عالمياً وفي الدول العربية لتنظيم ميزانيات الاستهلاك. تُفرض هذه الضريبة على السلع والخدمات في كل مرحلة من مراحل سلسلة التوريد.</p>
+                <h4>كيفية حساب ضريبة القيمة المضافة يدوياً:</h4>
+                <p>لحساب الضريبة بشكل دقيق وسريع، يمكنك استخدام المعادلات الحسابية الرياضية التالية:</p>
+                <p><strong>أولاً: عند إضافة الضريبة للمبلغ الأساسي:</strong><br>المعادلة: قيمة الضريبة = المبلغ الأساسي × (نسبة الضريبة ÷ 100).<br>الإجمالي النهائي = المبلغ الأساسي + قيمة الضريبة المقررة.</p>
+                <p><strong>ثانياً: عند استخراج الضريبة من السعر الإجمالي:</strong><br>المعادلة: المبلغ الأساسي = السعر الإجمالي النهائي ÷ (1 + (نسبة الضريبة ÷ 100)).<br>قيمة الضريبة الصافية = السعر الإجمالي - المبلغ الأساسي المستخرج.</p>
+                <p>تتيح لك حاسبتنا المتقدمة مرونة كاملة لإدخال أي نسبة ضريبية معمول بها في بلدك (مثل 15% في المملكة العربية السعودية أو أي نسب متباينة أخرى) للحصول على النتائج الفورية المعتمدة تجارياً وقانونياً.</p>
             </div>
+
             <div id="discount-calc-seo" class="seo-panel">
-                <h3>استراتيجيات الخصم التجاري</h3>
-                <p>تساعد حاسبات الخصم المستهلك والتاجر على معرفة الهوامش الحقيقية للتخفيضات الموسمية لتفادي التلاعب بالأسعار وضمان الربحية.</p>
+                <h3>دليل حساب الخصومات والتخفيضات التجارية الذكية</h3>
+                <p>في مواسم التسوق الكبرى والتنزيلات، يحتاج المستهلك الواعي والتاجر الطموح إلى معرفة الفروقات الحقيقية لنسب الخصم لضمان الشفافية وتجنب العروض الوهمية والتلاعب بالأسعار في الأسواق المفتوحة.</p>
+                <h4>طريقة احتساب التخفيض رياضياً:</h4>
+                <p>تعتمد العملية على ضرب القيمة الأساسية بنسبة المئوية للخصم المعلن:</p>
+                <p><strong>معادلة التوفير المالي:</strong> مقدار التوفير المالي المحقق = السعر الأصلي قبل الخصم × (نسبة الخصم المقررة ÷ 100).</p>
+                <p><strong>معادلة السعر النهائي:</strong> السعر النهائي بعد الخصم = السعر الأصلي - مقدار التوفير المالي.</p>
+                <p>تساعدك هذه الحاسبة الذكية في اتخاذ قرارات شرائية صائبة ومعرفة مقدار الأموال المباشرة التي قمت بتوفيرها خلال صفقاتك اليومية ومشترياتك الشخصية.</p>
             </div>
+
             <div id="percent-calc-seo" class="seo-panel">
-                <h3>النسب المئوية في الرياضيات</h3>
-                <p>حساب النسب المئوية جزء لا يتجزأ من المعاملات المالية، الإحصاءات، والتحليلات البيانية الدورية لتقييم الأداء والمقارنات.</p>
+                <h3>دليل حساب النسبة المئوية وتطبيقاتها العلمية والمالية</h3>
+                <p>تعتبر النسبة المئوية ركيزة أساسية في كافة المعاملات الإحصائية والرياضية والمالية؛ حيث تعبر عن أي عدد بكونه جزءاً أو كسرًا من مئة (100). تُستخدم على نطاق واسع في حساب درجات الطلاب، نسب النمو الاقتصادي، ومقارنة الإحصاءات العامة.</p>
+                <h4>المعادلة الرياضية العامة المعتمدة:</h4>
+                <p>لاستخراج قيمة نسبة محددة من مجموع كلي، يتم تطبيق القانون الرياضي التالي بدقة متناهية:</p>
+                <p><strong>المعادلة الأساسية:</strong> النتيجة الصافية = (النسبة المطلوبة ÷ 100) × العدد الإجمالي الكلي.</p>
+                <p>على سبيل المثال، إذا كنت تود معرفة كم تساوي نسبة 10% من العدد الإجمالي 500، فإن الحاسبة تنفذ المعادلة تلقائياً لتعطيك الناتج الصافي وهو 50، مما يختصر الجهد الفكري في العمليات المعقدة.</p>
             </div>
+
             <div id="loan-calc-seo" class="seo-panel">
-                <h3>التخطيط المالي والائتمان</h3>
-                <p>قبل الإقدام على طلب تمويل شخصي أو عقاري، يساعد الحساب الافتراضي للأقساط الشهرية في جدولة الميزانية وتفادي التعثر المالي.</p>
+                <h3>دليل حساب القروض الشخصية والتمويل الائتماني والبنكي</h3>
+                <p>قبل الإقدام على أخذ خطوة التمويل العقاري أو الشخصي من المصارف، يلجأ الأفراد والشركات إلى التخطيط الائتماني الصارم وجدولة الميزانية الاستهلاكية لتفادي التعثر المالي ومخاطر الفوائد المتراكمة.</p>
+                <h4>طريقة الحساب الافتراضية المتبعة للأقساط:</h4>
+                <p>تقوم الحاسبة بتقدير الفوائد المضافة السنوية البسيطة لمعرفة حجم الالتزامات الشهرية التقريبية:</p>
+                <p><strong>إجمالي الأرباح البنكية:</strong> مبلغ الفائدة/الربح = مبلغ القرض الأساسي × (نسبة الربح السنوية ÷ 100) × عدد سنوات السداد الإجمالية.</p>
+                <p><strong>المبلغ الإجمالي المردود:</strong> الإجمالي المستحق = مبلغ القرض الأساسي + إجمالي الأرباح البنكية المستخرجة.</p>
+                <p><strong>القسط الشهري:</strong> قيمة القسط = المبلغ الإجمالي المستحق ÷ (عدد السنوات الإجمالية × 12 شهرًا).</p>
+                <p>تمنحك هذه الأداة التخطيطية الرؤية الشاملة حول حجم المبالغ الإضافية التي يتقاضاها المصرف، وكيفية تنظيم دخلك الشهري ليتناسب مع التزامات السداد المستقبلية.</p>
             </div>
+
             <div id="margin-calc-seo" class="seo-panel">
-                <h3>إدارة الهوامش والأرباح</h3>
-                <p>الفرق بين السعر والتكلفة هو أساس استمرار أي عمل تجاري ناجح، حاسبة الهامش تعطيك النسبة الدقيقة لجدوى تسعير البضاعة والخدمة.</p>
+                <h3>دليل إدارة الهوامش وحساب صافي الأرباح للتجارة والمتاجر</h3>
+                <p>الفرق الجوهري بين تكلفة شراء البضائع وسعر بيعها النهائي للمستهلك هو حجر الأساس لاستمرارية وتوسع أي مشروع تجاري ناجح، سواء كان متجراً إلكترونياً أو شركة ناشئة في الأسواق المحلية والعالمية.</p>
+                <h4>الفارق بين صافي الربح وهامش الربح المئوي:</h4>
+                <p>تختلط المفاهيم لدى الكثير من المبتدئين في ريادة الأعمال، وإليك المعادلات الحاكمة والفاصلة:</p>
+                <p><strong>أولاً: صافي الربح المالي:</strong> هو القيمة النقدية الصافية المحققة بعد طرح التكلفة.<br>المعادلة: صافي الربح = سعر البيع المقترح - تكلفة المنتج الأساسية عليك.</p>
+                <p><strong>ثانياً: هامش الربح (Profit Margin):</strong> هو النسبة المئوية التي يمثلها الربح من سعر البيع النهائي للمنتج.<br>المعادلة: هامش الربح المئوي = (صافي الربح المحقق ÷ سعر البيع المقترح للمستهلك) × 100.</p>
+                <p>تعد هذه الأداة البرمجية بالغة الأهمية لتسعير المنتجات والخدمات بذكاء يضمن تغطية النفقات التشغيلية للمتجر وتحقيق معدلات نمو مستدامة وعالية للأعمال.</p>
             </div>
+
             <div id="zakat-calc-seo" class="seo-panel">
-                <h3>الركن الثالث في الإسلام</h3>
-                <p>تطهير المال واجب شرعي، وحساب زكاة المال النقدية يسهل على المزكي معرفة النسبة الشرعية المفروضة وإخراجها لمستحقيها بيسر.</p>
+                <h3>دليل فقه حساب الزكاة الشرعية للأموال والسيولة النقدية</h3>
+                <p>تعتبر الزكاة الركن الثالث من أركان الإسلام الخمسة، وهي فريضة وتطهير ونماء للمال. يلتزم المسلم المزكي بحساب أمواله المدخرة لإخراج حق الفقراء والمساكين سنوياً تلبيةً للواجب الشرعي السامي.</p>
+                <h4>شروط وجوب إخراج زكاة المال النقدية:</h4>
+                <p>1. <strong>بلوغ النصاب:</strong> وهو ما يعادل قيمة 85 جراماً من الذهب النقي الصافي.<br>2. <strong>دوران الحول:</strong> أن يمر على المال المدخر عام هجري كامل وهو في ملكية وصاحب الحوزة النقدية دون أن ينقص عن حد النصاب المقر.</p>
+                <h4>المعادلة الفقهية الرياضية الثابتة:</h4>
+                <p>النسبة الشرعية المفروضة على الأموال النقدية والسيولة هي ربع العشر (أي ما يعادل تماماً نسبة 2.5%):</p>
+                <p><strong>معادلة الحساب:</strong> مقدار الزكاة الواجبة = إجمالي المال المدخر الحالي × 0.025 (أو تقسيم المبلغ الكلي على 40).</p>
+                <p>توفر حاسبتنا الشرعية وسيلة موثوقة وسريعة تضمن استخراج النسبة الإسلامية الدقيقة لزكاة أموالك دون عناء الحسابات الفكرية المعقدة.</p>
             </div>
+
             <div id="bmi-calc-seo" class="seo-panel">
-                <h3>الصحة ومؤشر الـ BMI</h3>
-                <p>يعتبر مؤشر كتلة الجسم أداة قياسية عالمية معتمدة من منظمة الصحة لتقييم مستويات الوزن ومخاطر السمنة أو النحافة المفرطة.</p>
+                <h3>دليل الرعاية الصحية ومؤشر كتلة الجسم العالمي (BMI)</h3>
+                <p>يعتبر مؤشر كتلة الجسم (Body Mass Index) أداة القياس العالمية القياسية المعتمدة رسمياً من قبل منظمة الصحة العالمية (WHO) لتقييم وفحص مستويات الوزن البشري وتحديد تصنيفات النحافة أو الوزن المثالي أو السمنة المخاطرة.</p>
+                <h4>المعادلة الطبية الرياضية للـ BMI:</h4>
+                <p>تعتمد النتيجة الرياضية الصافية على العلاقة النسبية المباشرة بين وزن الإنسان وطوله الكلي:</p>
+                <p><strong>المعادلة المعتمدة:</strong> مؤشر الـ BMI = الوزن بالكيلوجرام ÷ (الطول بالمتر × الطول بالمتر).</p>
+                <h4>التصنيفات الصحية العالمية للنتائج:</h4>
+                <p>• <strong>أقل من 18.5:</strong> نحافة مفرطة تستدعي الرعاية والتغذية المكثفة.<br>• <strong>من 18.5 إلى 24.9:</strong> وزن مثالي، طبيعي ومتناسق تماماً.<br>• <strong>من 25 إلى 29.9:</strong> زيادة طفيفة في الوزن وتنبيه للياقة البدنية.<br>• <strong>30 أو أكثر:</strong> سمنة مفرطة تتطلب مراجعة النمط الغذائي والرياضي العام.</p>
             </div>
+
             <div id="calories-calc-seo" class="seo-panel">
-                <h3>حساب استهلاك الطاقة اليومي</h3>
-                <p>معرفة معدل الأيض ومقدار السعرات المستهلكة يومياً يساعد الرياضيين والمهتمين بالصحة على تنظيم الوجبات لإنقاص أو زيادة الوزن.</p>
+                <h3>دليل حساب السعرات الحرارية والتمثيل الغذائي والأيض</h3>
+                <p>لكل رياضي مهتم بلياقته البدنية وبناء كتلته العضلية أو تصفية الدهون وحرق الوزن، تعد معرفة السعرات الحرارية التي يستهلكها الجسم يومياً هي المفتاح السري والأساسي للتحكم الكامل في تركيبة وبنية الجسم البشري.</p>
+                <h4>معدل الأيض الأساسي (BMR) والاحتياج اليومي:</h4>
+                <p>تستخدم حاسبتنا معادلة <strong>Mifflin-St Jeor</strong> الحديثة والأكثر دقة عالمياً لاستخراج مستويات حرق الطاقة الفورية:</p>
+                <p><strong>معادلة الذكور (BMR):</strong> (10 × الوزن كجم) + (6.25 × الطول سم) - (5 × العمر بالسنوات) + 5.</p>
+                <p><strong>معادلة الإناث (BMR):</strong> (10 × الوزن كجم) + (6.25 × الطول سم) - (5 × العمر بالسنوات) - 161.</p>
+                <p>بعد معرفة الطاقة السكونية (BMR)، يتم ضرب الناتج في معدل النشاط الحركي الطبيعي والافتراضي لاستخراج الطاقة والاحتياج اليومي الكلي لتثبيت الوزن. يمكنك بعدها إنقاص 500 سعرة لتقليل الوزن أو زيادة 500 سعرة لبناء الكتلة العضلية بنجاح.</p>
             </div>
+
             <div id="currency-calc-seo" class="seo-panel">
-                <h3>سوق الصرف والعملات</h3>
-                <p>يسهل تبادل القيم والعملات على المسافرين والمتعاملين في التجارة الدولية معرفة الفروقات التقريبية لحجم السيولة النقدية المستبدلة في العالم العربي والعالمي.</p>
+                <h3>دليل أسواق الصرف الأجنبي وتحويل العملات بمرونة</h3>
+                <p>تعتبر حركة تبادل العملات الأجنبية ركناً أساسياً للمسافرين الدوليين، المتسوقين عبر الإنترنت من متاجر عالمية، والمستثمرين في التجارة الدولية الفورية. تتأثر أسعار الصرف بالسياسات النقدية والمؤشرات الاقتصادية العالمية لكل دولة.</p>
+                <h4>آلية التحويل البرمجية داخل المنصة:</h4>
+                <p>تعتمد الحاسبة على أسعار صرف مرجعية تقريبية وثابتة مقابل الدولار الأمريكي (USD) باعتباره العملة الاحتياطية العالمية الأولى في التداولات والدولية، ومن ثم يتم تدوير التحويل بين العملات العربية الشاملة (كالريال السعودي، الدرهم، الجنيه، الدينار الكويتي الفخم) والعملات الأجنبية كاليورو والإسترليني بدقة وفورية عالية، لتعطيك القيمة التقديرية المباشرة لرؤوس أموالك والسيولة النقدية المستبدلة.</p>
             </div>
+
             <div id="age-calc-seo" class="seo-panel">
-                <h3>التاريخ والتوثيق الزمني</h3>
-                <p>حساب العمر الزمني بدقة يفيد في تقديم المعاملات الرسمية وتتبع مراحل النمو، بجانب التعرف على الخصائص الفلكية للأبراج الشمسية.</p>
+                <h3>دليل حساب العمر الدقيق والتوثيق والمتابعة الزمنية</h3>
+                <p>يساعد حساب العمر الزمني الدقيق بالسنوات والشهور والأيام الأفراد في تقديم المعاملات الرسمية والحكومية، تتبع مراحل النمو البدني، وتنظيم التخطيط الشخصي السنوي بشكل دوري سليم ومتكامل.</p>
+                <h4>الآلية البرمجية المتبعة لحساب الوقت:</h4>
+                <p>تقوم الحاسبة البرمجية النظيفة بمقارنة تاريخ ميلاد المستخدم المدخل مع التاريخ الحالي للسيرفر والوقت الفعلي الحاضر بدقة متناهية، لاستخراج الفروقات الزمنية بالأيام والسنين والشهور، وتمنحك مؤشراً دقيقاً ورائعاً يوضح عدد الأيام المتبقية التنازلية بالضبط حتى يحين موعد يوم ميلادك السنوي القادم لجدولة أهدافك وتطلعاتك الشخصية لعامك الجديد والمستقبلي.</p>
             </div>
+
         </aside>
 
     </div>
@@ -401,41 +458,41 @@
             <a onclick="openModal('terms-modal')">الشروط والأحكام</a> | 
             <a onclick="openModal('contact-modal')">اتصل بنا</a>
         </div>
-        <p>&copy; 2026 حاسبات العرب. كل الحقوق محفوظة لرفع الوعي الرقمي المالي والصحي.</p>
+        <p>&copy; 2026 حاسبات العرب. كل الحقوق محفوظة لرفع الوعي الرقمي المالي والصحي في الوطن العربي.</p>
     </footer>
 
     <div id="about-modal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('about-modal')">&times;</span>
             <h2>من نحن</h2>
-            <p>موقع <strong>حاسبات العرب</strong> هو منصة رقمية عربية مجانية تهدف إلى تقديم مجموعة واسعة من الأدوات والحاسبات البرمجية الذكية والدقيقة لمساعدة الأفراد، أصحاب المشاريع، ورواد المتاجر الإلكترونية في تنظيم وإدارة حساباتهم اليومية والمالية والصحية بكل سهولة ومن مكان واحد.</p>
+            <p>موقع <strong>حاسبات العرب</strong> هو منصة رقمية رائدة وعربية مجانية 100%، تم تأسيسها بهدف إتاحة وتوفير حزمة متكاملة من الأدوات والحاسبات البرمجية الذكية فائقة الدقة والموثوقية لمساعدة كافة الأفراد، الطلاب، التجار، وأصحاب المتاجر الإلكترونية في تسيير وتنظيم شؤون حساباتهم اليومية والمالية والرياضية والصحية بيسر وسلاسة تامة، ومن نافذة واحدة دون الحاجة لتثبيت تطبيقات خارجية.</p>
         </div>
     </div>
 
     <div id="privacy-modal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('privacy-modal')">&times;</span>
-            <h2>سياسة الخصوصية</h2>
-            <p>في حاسبات العرب، نولي خصوصية زوارنا أهمية بالغة. نحن لا نقوم بجمع أو حفظ أي بيانات مالية أو شخصية تقوم بإدخالها داخل الحاسبات؛ فكل العمليات الحسابية تتم محلياً داخل متصفحك.</p>
-            <p>نحن نستخدم إعلانات الطرف الثالث مثل Google AdSense، والتي قد تستخدم ملفات تعريف الارتباط (Cookies) لتحسين تجربة الإعلانات وظهورها بما يناسب اهتماماتك.</p>
+            <h2>سياسة الخصوصية ونظام الأمان</h2>
+            <p>في منصة حاسبات العرب، نضع خصوصية وأمان زوارنا الكرام على رأس أولوياتنا المهنية. نحن نؤكد بشكل قاطع أننا لا نقوم بجمع، أو حفظ، أو الاطلاع على أي بيانات مالية أو أرقام شخصية سرية تقوم بإدخالها ضمن حقول الحاسبات المختلفة؛ إذ إن كافة المعادلات والعمليات الحسابية والبرمجية تُنفذ محلياً بالكامل داخل متصفحك الخاص دون إرسالها لسيرفراتنا.</p>
+            <p>نحن نستخدم إعلانات الطرف الثالث الموثوقة مثل Google AdSense، والتي قد تعتمد على ملفات تعريف الارتباط (Cookies) لتحسين جودة وتخصيص تجربة الإعلانات وظهورها بما يتناسب مع اهتماماتك وتطلعاتك الرقمية العامة.</p>
         </div>
     </div>
 
     <div id="terms-modal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('terms-modal')">&times;</span>
-            <h2>الشروط والأحكام</h2>
-            <p>باستخدامك لموقع حاسبات العرب، فإنك توافق على الشروط التالية: جميع الأدوات والحاسبات المتوفرة في الموقع تقدم مجاناً كما هي ولأغراض تعليمية وتيسيرية فقط. وعلى الرغم من حرصنا البالغ على دقة المعادلات، لا نتحمل أي مسؤولية قانونية أو مالية نتيجة أي قرارات تُبنى على نتائج هذه الحاسبات.</p>
+            <h2>الشروط والأحكام والاستخدام</h2>
+            <p>يرجى قراءة الشروط التالية بعناية قبل استخدام موقع حاسبات العرب: إن كافة الأدوات والحاسبات البرمجية المتاحة عبر المنصة تُقدم مجاناً بالكامل كما هي، ولأغراض تعليمية، تيسيرية، وإرشادية فقط. وعلى الرغم من المراجعة الصارمة والحرص البالغ لضمان دقة وصحة المعادلات الرياضية والفقهية المطبقة، فإن المنصة وإدارتها لا تتحمل أي مسؤولية قانونية، مالية، أو تجارية ناتجة عن قرارات مصيرية أو تداولات تُبنى على نتائج هذه الحاسبات الاسترشادية.</p>
         </div>
     </div>
 
     <div id="contact-modal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('contact-modal')">&times;</span>
-            <h2>اتصل بنا</h2>
-            <p>يسعدنا دائماً استقبال استفساراتكم أو اقتراحاتكم لتطوير حاسبات جديدة تخدم العالم العربي.</p>
-            <p>يمكنكم التواصل معنا مباشرة عبر البريد الإلكتروني الرسمي للمشروع:</p>
-            <p style="font-weight: bold; color: var(--secondary-color); text-align: center; margin: 15px 0;">support@arab-calculators.com</p>
+            <h2>اتصل بنا وقنوات التواصل الرسمية</h2>
+            <p>يسعدنا ويشرفنا دائماً في إدارة حاسبات العرب استقبال استفساراتكم، ملاحظاتكم التقنية، أو مقترحاتكم البناءة لإضافة حاسبات برمجية جديدة تخدم مجتمعاتنا العربية وتساهم في نشر الوعي والمنفعة الرقمية العامة.</p>
+            <p>يمكنكم التواصل معنا مباشرة والرد الفوري عبر البريد الإلكتروني الرسمي والوحيد للمشروع:</p>
+            <p style="font-weight: bold; color: var(--secondary-color); text-align: center; margin: 20px 0; font-size: 18px;" id="contact-email">hsablltwasl1@gmail.com</p>
         </div>
     </div>
 
@@ -456,19 +513,19 @@
         // دالة إغلاق النوافذ القانونية
         function closeModal(modalId) { document.getElementById(modalId).style.display = "none"; }
 
-        // أغلق النافذة إذا ضغط المستخدم خارج الصندوق
+        // إغلاق النافذة المنبثقة تلقائياً إذا ضغط المستخدم في المساحة الفارغة المحيطة بالصندوق
         window.onclick = function(event) {
             if (event.target.className === 'modal') {
                 event.target.style.display = "none";
             }
         }
 
-        // 1. الضريبة
+        // 1. حساب الضريبة VAT
         function calcVAT() {
             let amt = parseFloat(document.getElementById('vat-amount').value);
             let rate = parseFloat(document.getElementById('vat-rate').value) / 100;
             let type = document.getElementById('vat-type').value;
-            if(isNaN(amt) || amt <= 0 || isNaN(rate) || rate < 0) return alert('الرجاء إدخال أرقام صحيحة');
+            if(isNaN(amt) || amt <= 0 || isNaN(rate) || rate < 0) return alert('الرجاء إدخال مبالغ ونسب صحيحة أكبر من الصفر');
             let base=0, tax=0, total=0;
             if(type === 'exclude') { base=amt; tax=amt*rate; total=amt+tax; }
             else { total=amt; base=amt/(1+rate); tax=total-base; }
@@ -478,11 +535,11 @@
             document.getElementById('vat-res').style.display = 'block';
         }
 
-        // 2. الخصم
+        // 2. حساب الخصومات
         function calcDiscount() {
             let p = parseFloat(document.getElementById('disc-price').value);
             let pct = parseFloat(document.getElementById('disc-pct').value);
-            if(isNaN(p) || isNaN(pct) || pct<0 || pct>100) return alert('أدخل بيانات صحيحة');
+            if(isNaN(p) || isNaN(pct) || pct<0 || pct>100) return alert('الرجاء إدخال سعر صحيح ونسبة خصم منطقية بين 0 و100');
             let saved = p * (pct/100);
             let final = p - saved;
             document.getElementById('d1').innerText = saved.toFixed(2) + ' ريال';
@@ -490,22 +547,22 @@
             document.getElementById('disc-res').style.display = 'block';
         }
 
-        // 3. النسبة المئوية
+        // 3. حساب النسبة المئوية
         function calcPercent() {
             let pct = parseFloat(document.getElementById('per-pct').value);
             let tot = parseFloat(document.getElementById('per-total').value);
-            if(isNaN(pct) || isNaN(tot)) return alert('أدخل أرقام صحيحة');
+            if(isNaN(pct) || isNaN(tot)) return alert('الرجاء إدخال أرقام صحيحة لإتمام العملية');
             let res = (pct / 100) * tot;
             document.getElementById('p1').innerText = res.toFixed(2);
             document.getElementById('per-res').style.display = 'block';
         }
 
-        // 4. القروض
+        // 4. حساب القروض
         function calcLoan() {
             let amt = parseFloat(document.getElementById('loan-amt').value);
             let rate = parseFloat(document.getElementById('loan-rate').value) / 100;
             let yrs = parseFloat(document.getElementById('loan-years').value);
-            if(isNaN(amt) || isNaN(rate) || isNaN(yrs)) return alert('أدخل بيانات صحيحة');
+            if(isNaN(amt) || isNaN(rate) || isNaN(yrs) || yrs<=0) return alert('الرجاء إدخال معلومات التمويل والسنوات بشكل صحيح');
             let totalInterest = amt * rate * yrs;
             let totalPayable = amt + totalInterest;
             let monthly = totalPayable / (yrs * 12);
@@ -515,11 +572,11 @@
             document.getElementById('loan-res').style.display = 'block';
         }
 
-        // 5. الهامش
+        // 5. حساب الهامش والربح
         function calcMargin() {
             let cost = parseFloat(document.getElementById('cost-amt').value);
             let rev = parseFloat(document.getElementById('revenue-amt').value);
-            if(isNaN(cost) || isNaN(rev) || rev <= 0) return alert('أدخل قيم صحيحة');
+            if(isNaN(cost) || isNaN(rev) || rev <= 0) return alert('الرجاء التأكد من كتابة قيم التكلفة والبيع بشكل صحيح أكبر من الصفر');
             let profit = rev - cost;
             let margin = (profit / rev) * 100;
             document.getElementById('m1').innerText = profit.toFixed(2) + ' ريال';
@@ -527,38 +584,38 @@
             document.getElementById('margin-res').style.display = 'block';
         }
 
-        // 6. الزكاة
+        // 6. حساب الزكاة الشرعية
         function calcZakat() {
             let amt = parseFloat(document.getElementById('zakat-amt').value);
-            if(isNaN(amt) || amt <= 0) return alert('أدخل مقدار مال صحيح');
+            if(isNaN(amt) || amt <= 0) return alert('الرجاء إدخال مقدار السيولة النقدية الحالية بشكل صحيح وبأرقام موجبة');
             let zakat = amt * 0.025;
             document.getElementById('z1').innerText = zakat.toFixed(2) + ' ريال';
             document.getElementById('zakat-res').style.display = 'block';
         }
 
-        // 7. BMI
+        // 7. حساب مؤشر كتلة الجسم BMI
         function calcBMI() {
             let w = parseFloat(document.getElementById('bmi-weight').value);
             let h = parseFloat(document.getElementById('bmi-height').value) / 100;
-            if(isNaN(w) || isNaN(h) || h <= 0) return alert('أدخل قيم صحيحة');
+            if(isNaN(w) || isNaN(h) || h <= 0) return alert('الرجاء كتابة قيم الوزن والطول بأرقام صحيحة دقيقة');
             let bmi = w / (h * h);
             let status = "";
-            if(bmi < 18.5) status = "نحافة مفرطة 🦴";
-            else if(bmi < 25) status = "وزن مثالي طبيعي ✅";
-            else if(bmi < 30) status = "زيادة في الوزن ⚠️";
-            else status = "سمنة مفرطة 🚨";
+            if(bmi < 18.5) status = "نحافة مفرطة وبنية ضعيفة 🦴";
+            else if(bmi < 25) status = "وزن مثالي، صحي وطبيعي جزيلاً ✅";
+            else if(bmi < 30) status = "زيادة طفيفة في الوزن (مؤشر تنبيه) ⚠️";
+            else status = "سمنة مفرطة وخطر صحي مقدر 🚨";
             document.getElementById('b1').innerText = bmi.toFixed(1);
             document.getElementById('b2').innerText = status;
             document.getElementById('bmi-res').style.display = 'block';
         }
 
-        // 8. السعرات
+        // 8. حساب السعرات الحرارية والـ BMR
         function calcCalories() {
             let w = parseFloat(document.getElementById('cal-weight').value);
             let h = parseFloat(document.getElementById('cal-height').value);
             let a = parseFloat(document.getElementById('cal-age').value);
             let g = document.getElementById('cal-gender').value;
-            if(isNaN(w) || isNaN(h) || isNaN(a)) return alert('أدخل معلومات كاملة');
+            if(isNaN(w) || isNaN(h) || isNaN(a) || a<=0) return alert('الرجاء إكمال كافة مدخلات الجسم والسن لتوليد القيم الأيضية');
             let bmr = 0;
             if(g === 'male') bmr = 10*w + 6.25*h - 5*a + 5;
             else bmr = 10*w + 6.25*h - 5*a - 161;
@@ -568,28 +625,15 @@
             document.getElementById('calories-res').style.display = 'block';
         }
 
-        // 9. تحويل العملات المطور والشامل
+        // 9. تحويل العملات العربية والعالمية الشامل
         function calcCurrency() {
             let amt = parseFloat(document.getElementById('curr-amt').value);
             let from = document.getElementById('curr-from').value;
             let to = document.getElementById('curr-to').value;
-            if(isNaN(amt) || amt <= 0) return alert('الرجاء إدخال مبلغ صحيح أكبر من الصفر');
+            if(isNaN(amt) || amt <= 0) return alert('الرجاء إدخال مبلغ مالي صحيح أكبر من الصفر لإجراء عملية الصرف');
             
-            // أسعار الصرف التقريبية الثابتة مقابل الدولار الأمريكي (USD كمرجع)
-            const rates = {
-                USD: 1.0,
-                SAR: 3.75,
-                AED: 3.67,
-                EGP: 47.50,
-                KWD: 0.31,
-                QAR: 3.64,
-                BHD: 0.38,
-                OMR: 0.39,
-                EUR: 0.92,
-                GBP: 0.79
-            };
-
-            // التحويل من العملة الأساسية إلى دولار، ثم من دولار إلى العملة المستهدفة
+            // أسعار الصرف التقريبية الثابتة والافتراضية مقابل الدولار الأمريكي (USD كمرجع أساسي)
+            const rates = { USD: 1.0, SAR: 3.75, AED: 3.67, EGP: 47.50, KWD: 0.31, QAR: 3.64, BHD: 0.38, OMR: 0.39, EUR: 0.92, GBP: 0.79 };
             let amountInUSD = amt / rates[from];
             let convertedAmount = amountInUSD * rates[to];
 
@@ -597,33 +641,29 @@
             document.getElementById('currency-res').style.display = 'block';
         }
 
-        // 10. العمر والبرج
+        // 10. حاسبة العمر الدقيقة والزمن التنازلي النظيفة
         function calcAge() {
             let dateStr = document.getElementById('birth-date').value;
-            if(!dateStr) return alert('اختر التاريخ');
+            if(!dateStr) return alert('الرجاء اختيار تاريخ ميلادك الكامل من التقويم أولاً');
             let birth = new Date(dateStr);
-            let diff = Date.now() - birth.getTime();
+            let today = new Date();
+            
+            let diff = today.getTime() - birth.getTime();
+            if(diff < 0) return alert('عذراً! لا يمكن أن يكون تاريخ ميلادك في المستقبل الزمني!');
+            
             let ageDate = new Date(diff);
             let years = Math.abs(ageDate.getUTCFullYear() - 1970);
             
-            let month = birth.getMonth() + 1;
-            let day = birth.getDate();
-            let sign = "--";
-            if ((month == 3 && day >= 21) || (month == 4 && day <= 19)) sign = "الحمل ♈";
-            else if ((month == 4 && day >= 20) || (month == 5 && day <= 20)) sign = "الثور ♉";
-            else if ((month == 5 && day >= 21) || (month == 6 && day <= 20)) sign = "الجوزاء ♊";
-            else if ((month == 6 && day >= 21) || (month == 7 && day <= 22)) sign = "السرطان ♋";
-            else if ((month == 7 && day >= 23) || (month == 8 && day <= 22)) sign = "الأسد ♌";
-            else if ((month == 8 && day >= 23) || (month == 9 && day <= 22)) sign = "العذراء ♍";
-            else if ((month == 9 && day >= 23) || (month == 10 && day <= 22)) sign = "الميزان ♎";
-            else if ((month == 10 && day >= 23) || (month == 11 && day <= 21)) sign = "العقرب ♏";
-            else if ((month == 11 && day >= 22) || (month == 12 && day <= 21)) sign = "القوس ♐";
-            else if ((month == 12 && day >= 22) || (month == 1 && day <= 19)) sign = "الجدي ♑";
-            else if ((month == 1 && day >= 20) || (month == 2 && day <= 18)) sign = "الدلو ♒";
-            else sign = "الحوت ♓";
+            // حساب الأيام المتبقية التنازلية ليوم الميلاد السنوي القادم
+            let nextBirthday = new Date(today.getFullYear(), birth.getMonth(), birth.getDate());
+            if (today > nextBirthday) {
+                nextBirthday.setFullYear(today.getFullYear() + 1);
+            }
+            let timeToNext = nextBirthday.getTime() - today.getTime();
+            let daysToNext = Math.ceil(timeToNext / (1000 * 60 * 60 * 24));
 
             document.getElementById('a1').innerText = years;
-            document.getElementById('a2').innerText = sign;
+            document.getElementById('a2').innerText = daysToNext;
             document.getElementById('age-res').style.display = 'block';
         }
     </script>
