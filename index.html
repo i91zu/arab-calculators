@@ -201,16 +201,16 @@
         <nav class="sidebar-nav">
             <h3>اختر الحاسبة المتاحة:</h3>
             <ul>
-                <li class="active" onclick="switchTab('vat-calc')">🧮 حاسبة الضريبة VAT</li>
-                <li onclick="switchTab('discount-calc')">🏷️ حاسبة الخصومات</li>
-                <li onclick="switchTab('percent-calc')">📊 حاسبة النسبة المئوية</li>
-                <li onclick="switchTab('loan-calc')">🏦 حاسبة القروض والتمويل</li>
-                <li onclick="switchTab('margin-calc')">📈 حاسبة الهامش والربح</li>
-                <li onclick="switchTab('zakat-calc')">💰 حاسبة الزكاة الشرعية والفطر</li>
-                <li onclick="switchTab('bmi-calc')">⚖️ حاسبة كتلة الجسم BMI</li>
-                <li onclick="switchTab('calories-calc')">🔥 حاسبة السعرات الحرارية</li>
-                <li onclick="switchTab('currency-calc')">💵 حاسبة تحويل العملات</li>
-                <li onclick="switchTab('age-calc')">📅 حاسبة العمر الدقيقة</li>
+                <li id="li-vat-calc" class="active" onclick="switchTab('vat-calc')">🧮 حاسبة الضريبة VAT</li>
+                <li id="li-discount-calc" onclick="switchTab('discount-calc')">🏷️ حاسبة الخصومات</li>
+                <li id="li-percent-calc" onclick="switchTab('percent-calc')">📊 حاسبة النسبة المئوية</li>
+                <li id="li-loan-calc" onclick="switchTab('loan-calc')">🏦 حاسبة القروض والتمويل</li>
+                <li id="li-margin-calc" onclick="switchTab('margin-calc')">📈 حاسبة الهامش والربح</li>
+                <li id="li-zakat-calc" onclick="switchTab('zakat-calc')">💰 حاسبة الزكاة الشرعية والفطر</li>
+                <li id="li-bmi-calc" onclick="switchTab('bmi-calc')">⚖️ حاسبة كتلة الجسم BMI</li>
+                <li id="li-calories-calc" onclick="switchTab('calories-calc')">🔥 حاسبة السعرات الحرارية</li>
+                <li id="li-currency-calc" onclick="switchTab('currency-calc')">💵 حاسبة تحويل العملات</li>
+                <li id="li-age-calc" onclick="switchTab('age-calc')">📅 حاسبة العمر الدقيقة</li>
             </ul>
         </nav>
 
@@ -283,7 +283,7 @@
                 </div>
             </div>
 
-            <!-- 6. الزكاة (المال + الفطر الشاملة بعد تعديل ضافر) -->
+            <!-- 6. الزكاة الشاملة -->
             <div id="zakat-calc" class="calc-panel">
                 <h3>💰 حاسبة الزكاة الشرعية الشاملة</h3>
                 <div class="zakat-toggle">
@@ -399,7 +399,7 @@
 
         </main>
 
-        <!-- منطقة المقالات لـ SEO وجوجل أدسينس (أدلة تفصيلية وموسعة) -->
+        <!-- منطقة المقالات لـ SEO وجوجل أدسينس -->
         <aside class="seo-zone">
             
             <!-- 1. ضريبة القيمة المضافة -->
@@ -446,14 +446,12 @@
                 <p><strong>ثانياً: هامش الربح (Profit Margin):</strong> هامش الربح المئوي = (صافي الربح المحقق ÷ سعر البيع المقترح للمستهلك) × 100.</p>
             </div>
 
-            <!-- 6. الزكاة الشرعية (تم إدراج دليل زكاة الفطر لعيون ضافر) -->
+            <!-- 6. الزكاة الشرعية -->
             <div id="zakat-calc-seo" class="seo-panel">
                 <h3>دليل فقه حساب زكاة الفطر وزكاة المال والمدخرات النقدي</h3>
                 <p>تضم الشريعة الإسلامية أنواعاً متعددة من الزكوات التي شرعها الله لتطهير النفس ونشر التكافل الاجتماعي بين المسلمين، ومن أبرزها زكاة المال النقدية وزكاة الفطر المباركة.</p>
-                
                 <h4>أولاً: زكاة الفطر (الأبدان):</h4>
                 <p>هي زكاة مفروضة على كل مسلم يملك قوتاً يزيد عن حاجته وحاجة عياله في يوم العيد وليلته. وتُخرج طعاماً صاعاً من قوت البلد المعتاد (كالأرز أو التمر أو الزبيب أو القمح) قبل صلاة العيد تأكيداً للسنّة المعتمدة. يعادل الصاع النبوي تقريباً حوالي 3 كيلوجرامات عن الفرد الواحد لتأمين احتياجات الفقراء والمساكين وغمرهم ببهجة العيد.</p>
-                
                 <h4>ثانياً: زكاة المال النقدية:</h4>
                 <p>تجب على السيولة المالية والأموال المدخرة التي بلغت النصاب الشرعي (ما يعادل قيمة 85 جراماً من الذهب النقي) ودار عليها حول هجري كامل في حوزة المالك دون أن تنقص عن حد النصاب المقر شرعاً، ونسبتها الثابتة فقهياً هي ربع العشر (2.5% من إجمالي المال الكلي).</p>
             </div>
@@ -490,7 +488,7 @@
 
     </div>
 
-    <!-- الفوتر مع روابط الصفحات القانونية المكتملة -->
+    <!-- الفوتر مع روابط الصفحات القانونية -->
     <footer>
         <div class="footer-links">
             <a onclick="openModal('about-modal')">من نحن</a> | 
@@ -501,7 +499,7 @@
         <p>&copy; 2026 حاسبات العرب. كل الحقوق محفوظة لرفع الوعي الرقمي المالي والصحي في الوطن العربي.</p>
     </footer>
 
-    <!-- 1. نافذة من نحن -->
+    <!-- 1. من نحن -->
     <div id="about-modal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('about-modal')">&times;</span>
@@ -510,7 +508,7 @@
         </div>
     </div>
 
-    <!-- 2. نافذة سياسة الخصوصية -->
+    <!-- 2. سياسة الخصوصية -->
     <div id="privacy-modal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('privacy-modal')">&times;</span>
@@ -519,7 +517,7 @@
         </div>
     </div>
 
-    <!-- 3. نافذة الشروط والأحكام -->
+    <!-- 3. الشروط والأحكام -->
     <div id="terms-modal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('terms-modal')">&times;</span>
@@ -528,26 +526,26 @@
         </div>
     </div>
 
-    <!-- 4. نافذة اتصل بنا -->
+    <!-- 4. اتصل بنا -->
     <div id="contact-modal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('contact-modal')">&times;</span>
             <h2>اتصل بنا وقنوات التواصل الرسمية</h2>
             <p>يسعدنا ويشرفنا دائماً في إدارة حاسبات العرب استقبال استفساراتكم وملاحظاتكم عبر البريد الإلكتروني الرسمي والوحيد:</p>
-            <p style="font-weight: bold; color: var(--secondary-color); text-align: center; margin: 20px 0; font-size: 18px;" id="contact-email">hsablltwasl1@gmail.com</p>
+            <p style="font-weight: bold; color: var(--secondary-color); text-align: center; margin: 20px 0; font-size: 18px;">hsablltwasl1@gmail.com</p>
         </div>
     </div>
 
     <script>
-        // دالة التنقل العامة والموحدة
+        // دالة التنقل العامة والموحدة المُصلحة بالكامل لتعمل بكفاءة
         function switchTab(id) {
-            document.querySelectorAll('.calc-panel').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('.seo-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.calc-panel').forEach(p => p.style.display = 'none');
+            document.querySelectorAll('.seo-panel').forEach(p => p.style.display = 'none');
             document.querySelectorAll('.sidebar-nav li').forEach(l => l.classList.remove('active'));
 
-            document.getElementById(id).classList.add('active');
-            document.getElementById(id + '-seo').classList.add('active');
-            event.currentTarget.classList.add('active');
+            document.getElementById(id).style.display = 'block';
+            document.getElementById(id + '-seo').style.display = 'block';
+            document.getElementById('li-' + id).classList.add('active');
         }
 
         // دالة التنقل بين زكاة المال وزكاة الفطر
@@ -566,9 +564,8 @@
             }
         }
 
-        // دالة فتح النوافذ القانونية
+        // دالة فتح وإغلاق النوافذ المنبثقة القانونية
         function openModal(modalId) { document.getElementById(modalId).style.display = "block"; }
-        // دالة إغلاق النوافذ القانونية
         function closeModal(modalId) { document.getElementById(modalId).style.display = "none"; }
 
         window.onclick = function(event) {
@@ -645,14 +642,14 @@
         function calcZakatFitr() {
             let count = parseInt(document.getElementById('zakat-count').value);
             if(isNaN(count) || count <= 0) return alert('الرجاء إدخال عدد أفراد صحيح أكبر من الصفر');
-            let sa'a = count * 1; // صاع عن كل شخص
-            let kg = count * 3;   // حوالي 3 كيلو تقريباً عن كل شخص
-            document.getElementById('zf1').innerText = sa'a;
+            let saa = count * 1; 
+            let kg = count * 3;   
+            document.getElementById('zf1').innerText = saa;
             document.getElementById('zf2').innerText = kg;
             document.getElementById('z-fitr-res').style.display = 'block';
         }
 
-        // 6. ب: حساب زكاة المال النقدية
+        // 6. ب: حساب زكاة المال
         function calcZakatMal() {
             let amt = parseFloat(document.getElementById('zakat-amt').value);
             if(isNaN(amt) || amt <= 0) return alert('الرجاء إدخال مبلغ مالي صحيح أكبر من الصفر');
@@ -669,7 +666,7 @@
             let bmi = w / (h * h);
             let status = "";
             if(bmi < 18.5) status = "نحافة مفرطة وبنية ضعيفة 🦴";
-            else if(bmi < 25) status = "وزن مثالي، صحي وطبيعي جزيلاً ✅";
+            else if(bmi < 25) status = "وزن مثالي، صحي وطبيعي جداً ✅";
             else if(bmi < 30) status = "زيادة طفيفة في الوزن (مؤشر تنبيه) ⚠️";
             else status = "سمنة مفرطة وخطر صحي مقدر 🚨";
             document.getElementById('b1').innerText = bmi.toFixed(1);
@@ -677,7 +674,7 @@
             document.getElementById('bmi-res').style.display = 'block';
         }
 
-        // 8. حساب السعرات الحرارية والـ BMR
+        // 8. حساب السعرات الحرارية
         function calcCalories() {
             let w = parseFloat(document.getElementById('cal-weight').value);
             let h = parseFloat(document.getElementById('cal-height').value);
